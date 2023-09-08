@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="bg-white container">
       {/* footer top part */}
       <div className="border-b py-6">
-        <h4 className="text-[#516067] text-2xl md:text-3xl font-semibold mb-6">
+        <h4 className="text-[#516067] text-xl md:text-3xl font-semibold mb-6">
           Kutir Shilpo
         </h4>
         <ul className="flex gap-3">

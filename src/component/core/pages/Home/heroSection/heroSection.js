@@ -17,14 +17,14 @@ const HeroSection = () => {
           <Image
             height={200}
             width={250}
-            className="h-[35vh] rotate-180 w-auto"
+            className="h-[35vh] relative top-16 rotate-180 w-auto"
             src={banner}
             alt="banner image"
           />
           <Image
             height={200}
             width={300}
-            className="h-[20vh] hidden xl:block relative top-14 right-12 w-auto"
+            className="h-[20vh] hidden xl:block relative top-28 right-8 w-auto"
             src={banner1}
             alt="banner image"
           />

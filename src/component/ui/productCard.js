@@ -1,9 +1,10 @@
 "use client";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, id }) => {
   return (
     <div className="flex flex-col border rounded-t rounded-b-lg overflow-hidden">
       <Image
@@ -28,7 +29,10 @@ const ProductCard = ({ product }) => {
           ৳ {product?.price}
         </p>
       </div>
-      <button className="mt-auto block w-full text-white font-semibold text-sm bg-[#516067] py-1">
+      <Link className="mt-auto font-semibold text-[#516067] w-full text-center border border-[#516067]" href={`/products/${id}`}>
+        view Detail
+      </Link>
+      <button className="block w-full text-white font-semibold text-sm bg-[#516067] py-1">
         Add to Cart
       </button>
     </div>
