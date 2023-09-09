@@ -5,11 +5,11 @@ import Image from "next/image";
 import React from "react";
 
 const ProductMain = ({ product }) => {
-  const { image, title, price} =
+  const { image,title, price} =
     product;
   return (
     <div className="grid grid-cols-2 gap-4 p-6 bg-slate-50 rounded-l md:p-8">
-      <Image width={400} height={500} src={image} alt="product image" />
+      {image&&<Image width={400} height={500} src={image} alt="product image" />}
       <div>
         <div className="border-b pb-4">
           <h3 className="text-xl">{title}</h3>

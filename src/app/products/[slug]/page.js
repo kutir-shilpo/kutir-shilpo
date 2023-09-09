@@ -1,8 +1,9 @@
-import productImage from "@/assets/Glass-art/image-1.jpg";
+"use client"
 import Product from "@/component/core/pages/product/product";
-import products from "@/data/products";
+import useProduct from "@/hook/useProduct";
 const SingleProduct = ({params}) => {
-const product = products.find(product=>product?._id===parseInt(params?.slug))
+  console.log(params?.slug);
+  const [product,loading] = useProduct(params?.slug)
   return (
     <div className="container">
       <Product product={product} />
