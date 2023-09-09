@@ -12,37 +12,37 @@ import BestProductCard from "@/component/ui/bestProductCard";
 
 const bestProductObj = [
     {
-      id: 1,
+      _id: 9,
       title: "Chines Bamboo art",
       image: product1,
       sells:202
     },
     {
-      id: 2,
+      _id: 2,
       title: "product 2",
       image: product2,
       sells:198
     },
     {
-      id: 3,
+      _id: 5,
       title: "product 3",
       image: product3,
       sells:170
     },
     {
-      id: 4,
+      _id: 12,
       title: "product 4",
       image: product4,
       sells:156
     },
     {
-      id: 5,
+      _id: 13,
       title: "product 5",
       image: product5,
       sells:135
     },
     {
-      id: 6,
+      _id: 14,
       title: "product 6",
       image: product6,
       sells:133
@@ -58,7 +58,7 @@ const BestProducts = () => {
       {/* show products */}
       <div className="grid gap-3 grid-cols-2 md:grid-cols-4 xl:grid-cols-6">
         {bestProductObj.map((product) => (
-          <BestProductCard key={product?.id} id={product?.id} product={product} />
+          <BestProductCard key={product?._id} id={product?._id} product={product} />
         ))}
       </div>
       <Link className="flex justify-end" href="/products">
