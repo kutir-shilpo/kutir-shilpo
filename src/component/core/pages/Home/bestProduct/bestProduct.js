@@ -62,7 +62,7 @@ const BestProducts = () => {
         ))}
       </div>
       <Link className="flex justify-end" href="/products">
-        <Button className="py-1 flex items-center mt-2">
+        <Button className="py-1 text-sm flex items-center mt-2">
           See More <Icon icon="heroicons-outline:arrow-sm-right" />
         </Button>
       </Link>

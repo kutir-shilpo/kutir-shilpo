@@ -6,6 +6,8 @@ import product3 from "@/assets/Glass-art/image-3.jpg";
 import product4 from "@/assets/Glass-art/image-4.jpg";
 import product5 from "@/assets/Glass-art/image-5.jpg";
 import product6 from "@/assets/Glass-art/image-6.jpg";
+import product7 from "@/assets/Glass-art/image-7.jpg";
+import product8 from "@/assets/Glass-art/image-8.jpg";
 import Button from "@/component/ui/button";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
@@ -48,9 +50,21 @@ const glassProductObj = [
     image: product6,
     price: 1200,
   },
+  {
+    id: 7,
+    title: "product 7",
+    image: product7,
+    price: 1200,
+  },
+  {
+    id: 8,
+    title: "product 8",
+    image: product8,
+    price: 1200,
+  },
 ];
 
-const GlassProducts = () => {
+const GlassProducts = ({ isProductsPage }) => {
   return (
     <>
       <h2 className="text-xl text-[#516067]  py-4">
@@ -58,15 +72,35 @@ const GlassProducts = () => {
       </h2>
       {/* show products */}
       <div className="grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
-        {glassProductObj.map((product) => (
-          <ProductCard key={product?.id} id={product?.id} product={product} />
-        ))}
+        {!isProductsPage ? (
+          <>
+          {/* home page glass products */}
+            {glassProductObj.slice(0,6).map((product) => (
+              <ProductCard
+                key={product?.id}
+                id={product?.id}
+                product={product}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+          {/* products page glass products */}
+          {glassProductObj.map((product) => (
+              <ProductCard
+                key={product?.id}
+                id={product?.id}
+                product={product}
+              />
+            ))}
+          </>
+        )}
       </div>
-      <Link className="flex justify-end" href="/products">
-        <Button className="py-1 flex items-center mt-2">
+      {!isProductsPage&&<Link className="flex justify-end" href="/products">
+        <Button className="py-1 text-sm flex items-center mt-2">
           See More <Icon icon="heroicons-outline:arrow-sm-right" />
         </Button>
-      </Link>
+      </Link>}
     </>
   );
 };

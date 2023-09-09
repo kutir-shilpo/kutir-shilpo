@@ -6,6 +6,12 @@ import product3 from "@/assets/Bamboo-art/image-3.jpg";
 import product4 from "@/assets/Bamboo-art/image-4.jpg";
 import product5 from "@/assets/Bamboo-art/image-5.jpg";
 import product6 from "@/assets/Bamboo-art/image-6.jpg";
+import product7 from "@/assets/Bamboo-art/image-7.jpg";
+import product8 from "@/assets/Bamboo-art/image-8.jpg";
+import product9 from "@/assets/Bamboo-art/image-9.jpg";
+import product10 from "@/assets/Bamboo-art/image-10.jpg";
+import product11 from "@/assets/Bamboo-art/image-11.jpg";
+import product12 from "@/assets/Bamboo-art/image-12.jpg";
 import Button from "@/component/ui/button";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
@@ -48,26 +54,82 @@ const glassProductObj = [
     image: product6,
     price: 1200,
   },
+  {
+    id: 7,
+    title: "product 7",
+    image: product7,
+    price: 1200,
+  },
+  {
+    id: 8,
+    title: "product 8",
+    image: product8,
+    price: 1200,
+  },
+  {
+    id: 9,
+    title: "product 9",
+    image: product9,
+    price: 1200,
+  },
+  {
+    id: 10,
+    title: "product 10",
+    image: product10,
+    price: 1200,
+  },
+  {
+    id: 11,
+    title: "product 11",
+    image: product11,
+    price: 1200,
+  },
+  {
+    id: 12,
+    title: "product 12",
+    image: product12,
+    price: 1200,
+  },
 ];
-const BambooProduct = () => {
-    return (
-<>
+const BambooProduct = ({ isProductsPage }) => {
+  return (
+    <>
       <h2 className="text-xl text-[#516067]  py-4">
         <span className="border-b-2 border-[#516067]">Bamboo</span> Products
       </h2>
       {/* show products */}
       <div className="grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
-        {glassProductObj.map((product) => (
-          <ProductCard key={product?.id} id={product?.id} product={product} />
-        ))}
+        {!isProductsPage ? (
+          <>
+            {/* glass product for home page */}
+            {glassProductObj.slice(0, 6).map((product) => (
+              <ProductCard
+                key={product?.id}
+                id={product?.id}
+                product={product}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            {/* glass product for products page */}
+            {glassProductObj.map((product) => (
+              <ProductCard
+                key={product?.id}
+                id={product?.id}
+                product={product}
+              />
+            ))}
+          </>
+        )}
       </div>
-      <Link className="flex justify-end" href="/products">
-        <Button className="py-1 flex items-center mt-2">
+      {!isProductsPage&&<Link className="flex justify-end" href="/products">
+        <Button className="py-1 text-sm flex items-center mt-2">
           See More <Icon icon="heroicons-outline:arrow-sm-right" />
         </Button>
-      </Link>
+      </Link>}
     </>
-    );
+  );
 };
 
 export default BambooProduct;
