@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { replace } = useRouter();
   const { user, userLoading } = useAuthContext();
   if (userLoading) {
-    return <div className="text-[#516067] text-center mt-4">Loading...</div>;
+    return <div className="loader mt-4"></div>;
   }
   if (!user) {
     return replace("/");

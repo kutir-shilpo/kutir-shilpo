@@ -9,7 +9,7 @@ const SingleProduct = ({ params }) => {
   const { replace } = useRouter();
 
   if(userLoading){
-    return <div className="text-[#516067] text-center mt-4">Loading...</div>;
+    return <div className="loader mt-6"></div>;
   }
   if (!user) {
     return replace('/')

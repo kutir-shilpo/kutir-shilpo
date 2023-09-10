@@ -21,7 +21,7 @@ const Product = ({ product, loading }) => {
           </div>
         </>
       ) : (
-        <div className="text-[#516067] text-center mt-4">Loading...</div>
+        <div className="loader mt-6"></div>
       )}
     </>
   );

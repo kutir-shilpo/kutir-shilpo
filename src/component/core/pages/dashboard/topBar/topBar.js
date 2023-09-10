@@ -1,16 +1,34 @@
 "use client";
 import useAuthContext from "@/hook/useAuthContext";
 import { Icon } from "@iconify/react";
-import React from "react";
+const dashboardItems =[
+  {
+    _id:1,
+    title:"profile settings",
+    icon:<Icon icon="fa-solid:user-cog" />
+  },
+  {
+    _id:2,
+    title:"cart items",
+    icon:<Icon icon="fa-solid:shopping-cart" />
+  },
+  {
+    _id:3,
+    title:"payment history",
+    icon:<Icon className="text-lg relative" icon="heroicons-outline:currency-bangladeshi" />
+  }
+]
 
 const TopBar = () => {
-    const {setDashboardTitle} = useAuthContext();
+    const {dashboardTitle,setDashboardTitle} = useAuthContext();
   return (
     <div className=" h-full flex justify-end text-[#516067] rounded">
-      <ul className="flex py-2 px-6 border border-t-0 gap-3">
-        <li onClick={()=>setDashboardTitle("profile settings")} className="flex cursor-pointer gap-1 items-center"><Icon icon="fa-solid:user-cog" /> profile settings</li>
-        <li onClick={()=>setDashboardTitle("cart items")} className="flex cursor-pointer gap-1 items-center"><Icon icon="fa-solid:shopping-cart" /> cart items</li>
-        <li onClick={()=>setDashboardTitle("payment history")} className="flex cursor-pointer gap-1 items-center"><Icon className="text-lg relative" icon="heroicons-outline:currency-bangladeshi" /> payment history</li>
+      <ul className="flex border border-t-0 gap-3">
+        {dashboardItems?.map(item=><li 
+        key={item?._id}
+        onClick={()=>setDashboardTitle(item?.title)} 
+        className={`${dashboardTitle===item?.title&&"bg-slate-50"} flex cursor-pointer gap-1 py-2 px-6 items-center`}>
+          {item?.icon} {item?.title}</li>)}
       </ul>
     </div>
   );

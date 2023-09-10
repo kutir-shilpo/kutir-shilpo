@@ -54,8 +54,7 @@ const ClayProduct = ({ isProductsPage }) => {
           )}
         </>
       ) : (
-        <div className="text-[#516067] text-center mt-4">
-          Loading...
+        <div className="loader mt-6">
         </div>
       )}
     </>

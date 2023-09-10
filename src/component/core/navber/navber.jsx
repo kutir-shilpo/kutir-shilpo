@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import googleLogo from "@/assets/google-logo.png";
+import ActiveLink from "../activeLink/activeLink";
 
 const NavBer = () => {
   const [error, setError] = useState("");
@@ -60,9 +61,12 @@ const NavBer = () => {
                 />
               </button>
             </form>
-            <button onClick={checkoutHandler} className="flex mr-1">
+            <button
+              onClick={checkoutHandler}
+              className="flex items-center mr-1"
+            >
               <Icon
-                className="text-xl"
+                className="text-2xl"
                 icon="heroicons-outline:shopping-cart"
               />
               <span className="text-sm relative bottom-1">{0}</span>
@@ -71,8 +75,8 @@ const NavBer = () => {
             {user ? (
               <div className="relative">
                 <Image
-                  width={40}
-                  height={40}
+                  width={35}
+                  height={35}
                   className="rounded-full cursor-pointer"
                   src={user?.photoURL}
                   alt="user photo"
@@ -106,21 +110,19 @@ const NavBer = () => {
             ) : (
               <>
                 <div onClick={googleLoginHandler} className="cursor-pointer">
-                  <Button className="flex gap-1 items-center">
-                    {!userLoading ? (
-                      <>
-                        <Image
-                          height={18}
-                          width={18}
-                          src={googleLogo}
-                          alt="google logo"
-                        />
-                        Login
-                      </>
-                    ) : (
-                      <>Loading</>
-                    )}
-                  </Button>
+                  {!userLoading ? (
+                    <Button className="flex gap-1 items-center">
+                      <Image
+                        height={18}
+                        width={18}
+                        src={googleLogo}
+                        alt="google logo"
+                      />
+                      Login
+                    </Button>
+                  ) : (
+                    <div className="mini-loader"></div>
+                  )}
                 </div>
               </>
             )}
@@ -129,10 +131,10 @@ const NavBer = () => {
       </div>
       {/* navber bottom side */}
       <div className="bg-slate-100">
-        <div className="container py-3 flex gap-4 justify-end text-sm font-semibold">
-          <Link href="/">Home</Link>
-          <Link href="/products">Products</Link>
-          {user && <Link href="/dashboard">Dashboard</Link>}
+        <div className="container flex gap-4 justify-end text-sm font-semibold">
+          <ActiveLink className="py-3 px-5" href="/">Home</ActiveLink>
+          <ActiveLink className="py-3 px-5" href="/products">Products</ActiveLink>
+          {user && <ActiveLink className="py-3 px-5" href="/dashboard">Dashboard</ActiveLink>}
         </div>
       </div>
     </>
