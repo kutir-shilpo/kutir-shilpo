@@ -6,6 +6,10 @@
 $base-color: #516067;
 $light-color: #8298a2;
 
+// common css
+input:focus{
+  outline: none;
+}
 // normal css start
 .container {
   max-width: 1500px;

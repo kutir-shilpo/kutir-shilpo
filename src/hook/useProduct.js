@@ -15,7 +15,7 @@ const useProduct = (id) => {
       .catch((err) => console.log(err));
   }, [id]);
 
-  return [product];
+  return [product,loading];
 };
 
 export default useProduct;
