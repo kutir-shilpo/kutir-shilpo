@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-50 mt-10 md:mt-12">
-      <div className="container">
+    <div className="bg-slate-50 md:mt-12">
+      <div className="container mt-10">
         {/* footer top part */}
         <div className="grid md:grid-cols-2 gap-4 border-b py-8">
           {/* logo */}

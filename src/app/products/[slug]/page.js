@@ -1,24 +1,22 @@
 "use client";
-import Product from "@/component/core/pages/product/product";
-import useAuthContext from "@/hook/useAuthContext";
-import useProduct from "@/hook/useProduct";
-import { useRouter } from "next/navigation";
-const SingleProduct = ({ params }) => {
-  const [product, loading] = useProduct(params?.slug);
-  const { user,userLoading } = useAuthContext();
-  const { replace } = useRouter();
+import ProductCard from '@/component/ui/productCard';
+import { useCategoryProducts } from '@/hook/useProducts';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 
-  if(userLoading){
-    return <div className="loader mt-6"></div>;
-  }
-  if (!user) {
-    return replace('/')
-  }
+const ProductByCategory = () => {
+  const router=usePathname();
+  const category=router.split('/').slice(-1)[0].split("-")[0];
+  const [categoryProducts,loading]=useCategoryProducts(category);
   return (
     <>
-      <Product product={product} loading={loading} />
+    {!loading?<>
+    <div className="mt-10 md:mt-12 grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+      {categoryProducts?.map(product=><ProductCard key={product?._id} product={product} />)}
+    </div>
+    </>:<div className='loader mt-6'></div>}
     </>
   );
 };
 
-export default SingleProduct;
+export default ProductByCategory;

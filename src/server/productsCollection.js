@@ -17,5 +17,5 @@ export const getProductByCategory = async (category) => {
   const db = await DbConnect();
   const productsCollection = db.collection("products");
   const query = { category: category };
-  return productsCollection.find({ query }).toArray();
+  return productsCollection.find(query).toArray();
 };
