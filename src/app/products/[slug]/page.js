@@ -1,13 +1,23 @@
-"use client"
+"use client";
 import Product from "@/component/core/pages/product/product";
+import useAuthContext from "@/hook/useAuthContext";
 import useProduct from "@/hook/useProduct";
-const SingleProduct = ({params}) => {
-  console.log(params?.slug);
-  const [product,loading] = useProduct(params?.slug)
+import { useRouter } from "next/navigation";
+const SingleProduct = ({ params }) => {
+  const [product, loading] = useProduct(params?.slug);
+  const { user,userLoading } = useAuthContext();
+  const { replace } = useRouter();
+
+  if(userLoading){
+    return <div className="loader mt-6"></div>;
+  }
+  if (!user) {
+    return replace('/')
+  }
   return (
-    <div className="container">
-      <Product product={product} />
-    </div>
+    <>
+      <Product product={product} loading={loading} />
+    </>
   );
 };
 
