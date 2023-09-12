@@ -1,11 +1,12 @@
 "use client";
-import useProducts from "@/hook/useProducts";
+import useAddToCart from "@/hook/useAddToCart";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const ProductCard = ({ product, id }) => {
+  const [addToCart,cartLoader]=useAddToCart();
   return (
     <div className="flex flex-col border rounded-t rounded-b-lg overflow-hidden">
       <Image
@@ -30,11 +31,17 @@ const ProductCard = ({ product, id }) => {
           ৳ {product?.price}
         </p>
       </div>
-      <Link className="mt-auto font-semibold text-[#516067] w-full text-center border border-[#516067]" href={`/products/${id}`}>
+      <Link
+        className="mt-auto font-semibold text-[#516067] w-full text-center border border-[#516067]"
+        href={`/product/${id}`}
+      >
         view Detail
       </Link>
-      <button className="block w-full text-white font-semibold text-sm bg-[#516067] py-1">
-        Add to Cart
+      <button
+      onClick={()=>addToCart(id)}
+        className="block w-full text-white font-semibold text-sm bg-[#516067] py-1"
+      >
+        {!cartLoader?"Add to Cart":<div className="h-4 w-4 mini-loader"></div>}
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 const Checkout = () => {
     return (
         <div>
-            This is checkout page
+            This Page is Under Construction
         </div>
     );
 };

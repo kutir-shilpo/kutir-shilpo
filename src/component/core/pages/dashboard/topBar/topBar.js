@@ -27,7 +27,7 @@ const TopBar = () => {
         {dashboardItems?.map(item=><li 
         key={item?._id}
         onClick={()=>setDashboardTitle(item?.title)} 
-        className={`${dashboardTitle===item?.title&&"bg-slate-50"} flex cursor-pointer gap-1 py-2 px-6 items-center`}>
+        className={`${dashboardTitle===item?.title&&"bg-slate-50 font-normal text-[#8298a2]"} flex cursor-pointer gap-1 py-2 px-6 items-center`}>
           {item?.icon} {item?.title}</li>)}
       </ul>
     </div>

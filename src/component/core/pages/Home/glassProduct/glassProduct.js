@@ -48,7 +48,7 @@ const GlassProducts = ({ isProductsPage }) => {
             )}
           </div>
           {!isProductsPage && (
-            <Link className="flex justify-end" href="/products">
+            <Link className="flex justify-end" href="/products/glass-products">
               <Button className="py-1 text-sm flex items-center mt-2">
                 See More <Icon icon="heroicons-outline:arrow-sm-right" />
               </Button>
