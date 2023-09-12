@@ -15,6 +15,7 @@ const useProducts = () => {
         setProducts(data);
       })
       .catch((err) => {
+        setLoading(false);
         toast.error("something was wrong");
       });
   }, []);
@@ -32,6 +33,7 @@ export const useCategoryProducts = (category) => {
         setCategoryProducts(data);
       })
       .catch(() => {
+        setLoading(false)
         toast.error("something was wrong");
       });
   }, [category]);

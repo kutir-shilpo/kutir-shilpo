@@ -14,6 +14,7 @@ const useProduct = (id) => {
         setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
         toast.error("something was wrong")
       });
   }, [id]);
