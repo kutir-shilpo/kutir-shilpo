@@ -6,7 +6,6 @@ import Link from "next/link";
 
 const CartItems = () => {
   const [cartItems, cartLoading] = useCart();
-  console.log(cartItems);
   return (
     <table className="w-full md:w-2/3 mx-auto border rounded text-[#516067]">
       <thead>

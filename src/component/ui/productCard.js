@@ -1,12 +1,23 @@
 "use client";
 import useAddToCart from "@/hook/useAddToCart";
+import useAuthContext from "@/hook/useAuthContext";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import {toast} from "react-hot-toast";
 
-const ProductCard = ({ product, id }) => {
+const ProductCard = ({ product }) => {
+  const {user}=useAuthContext();
   const [addToCart,cartLoader]=useAddToCart();
+  
+  const { replace } = useRouter();
+  const viewDetailsHandler=(id)=>{
+    if (!user) {
+      return toast.error("You need to login first");
+    }
+    replace(`/product/${id}`)
+  }
   return (
     <div className="flex flex-col border rounded-t rounded-b-lg overflow-hidden">
       <Image
@@ -31,14 +42,14 @@ const ProductCard = ({ product, id }) => {
           ৳ {product?.price}
         </p>
       </div>
-      <Link
+      <button
         className="mt-auto font-semibold text-[#516067] w-full text-center border border-[#516067]"
-        href={`/product/${id}`}
+        onClick={()=>viewDetailsHandler(product?._id)}
       >
         view Detail
-      </Link>
+      </button>
       <button
-      onClick={()=>addToCart(id)}
+      onClick={()=>addToCart(product)}
         className="block w-full text-white font-semibold text-sm bg-[#516067] py-1"
       >
         {!cartLoader?"Add to Cart":<div className="h-4 w-4 mini-loader"></div>}

@@ -5,7 +5,7 @@ const ProductSidebar = ({ product, loading }) => {
   const { madeDate, quantity, sells, manufactureAuthority, location } = product;
   return (
     <div className="border-l flex flex-col gap-1 bg-slate-50 rounded-r p-6 h-full">
-      {!loading ? (
+      {!loading? (
         <>
           <p>Available Quantity: {quantity}.</p>
           <p>Sells: {sells}.</p>
@@ -16,7 +16,7 @@ const ProductSidebar = ({ product, loading }) => {
               className="text-lg"
               icon="heroicons-outline:location-marker"
             />
-            {location}.
+            {location&&location}.
           </p>
         </>
       ) : (
