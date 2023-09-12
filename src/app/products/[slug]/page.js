@@ -1,23 +1,22 @@
-import productImage from "@/assets/Glass-art/image-1.jpg";
-import Product from "@/component/core/pages/product/product";
-const product = {
-  id: 1,
-  title: "japanese glass art",
-  image: productImage,
-  price: 1200,
-  sells:120,
-  manufactureAuthority:"Aida Chemical Industries",
-  description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero minima sed molestias ipsa aut esse, error inventore asperiores optio voluptas neque consectetur omnis. Ipsum odit aspernatur voluptatem dolorem omnis maiores nobis voluptate cumque sit nisi impedit dolore cupiditate a libero, animi molestiae corporis. Dolores dolorem dignissimos, voluptatibus, rerum ipsum ut, perferendis enim quod deleniti illum doloribus delectus modi! Voluptatibus ab exercitationem maiores, laborum dolor nisi aut earum unde in illo officiis reprehenderit ratione. Dignissimos laborum veritatis a perferendis! Maiores, consectetur?",
-  quantity:10,
-  madeDate:"10 jun",
-  location:"Dhaka, Bangladesh"
-};
-const SingleProduct = () => {
+"use client";
+import ProductCard from '@/component/ui/productCard';
+import { useCategoryProducts } from '@/hook/useProducts';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+
+const ProductByCategory = () => {
+  const router=usePathname();
+  const category=router.split('/').slice(-1)[0].split("-")[0];
+  const [categoryProducts,loading]=useCategoryProducts(category);
   return (
-    <div className="container">
-      <Product product={product} />
+    <>
+    {!loading?<>
+    <div className="mt-10 md:mt-12 grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+      {categoryProducts?.map(product=><ProductCard key={product?._id} product={product} />)}
     </div>
+    </>:<div className='loader mt-6'></div>}
+    </>
   );
 };
 
-export default SingleProduct;
+export default ProductByCategory;

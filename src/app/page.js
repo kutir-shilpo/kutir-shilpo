@@ -6,13 +6,13 @@ import HeroSection from "@/component/core/pages/Home/heroSection/heroSection";
 
 const Home = () => {
   return (
-    <div className="container">
+    <>
       <HeroSection/>
       <GlassProducts/>
       <ClayProduct/>
       <BambooProduct/>
       <BestProduct/>
-    </div>
+    </>
   );
 };
 

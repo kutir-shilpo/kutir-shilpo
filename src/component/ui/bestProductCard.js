@@ -1,19 +1,31 @@
 "use client";
+import useAuthContext from "@/hook/useAuthContext";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import {toast} from "react-hot-toast";
 
-const BestProductCard = ({ product,id }) => {
+const BestProductCard = ({ product, id }) => {
+  const {user}=useAuthContext();
+
+  const { replace } = useRouter();
+  const viewDetailsHandler=(id)=>{
+    if (!user) {
+      return toast.error("You need to login first");
+    }
+    replace(`/`)
+  }
   return (
-    <Link
-      href={`/products/${id}`}
-      className="bestProductCard relative flex flex-col border rounded-t rounded-b-lg overflow-hidden"
+    <div
+      onClick={()=>viewDetailsHandler(id)}
+      className="bestProductCard relative flex flex-col border rounded-t rounded-b-lg overflow-hidden cursor-pointer"
     >
       <Image
         height={400}
         width={200}
-        className="h-full w-full"
+        className={`${!product?.image&&"max-h-48"} h-full w-full`}
         src={product?.image}
         alt="product image"
       />
@@ -27,7 +39,7 @@ const BestProductCard = ({ product,id }) => {
         <p className="text-sm">View Details</p>
         <Icon className="text-base" icon="heroicons-outline:arrow-right" />
       </div>
-    </Link>
+    </div>
   );
 };
 

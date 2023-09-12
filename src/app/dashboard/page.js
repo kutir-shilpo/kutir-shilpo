@@ -1,11 +1,14 @@
-import React from 'react';
+"use client";
+import MainContain from "@/component/core/pages/dashboard/mainContain/mainContain";
+import TopBar from "@/component/core/pages/dashboard/topBar/topBar";
 
 const Dashboard = () => {
-    return (
-        <div>
-            This dashboard
-        </div>
-    );
+  return (
+    <>
+      <TopBar />
+      <MainContain />
+    </>
+  );
 };
 
 export default Dashboard;
