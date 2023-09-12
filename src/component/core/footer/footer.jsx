@@ -52,7 +52,7 @@ const Footer = () => {
                   <Link href="/products">Products</Link>
                 </li>
                 <li className="text-sm font-medium text-[#516067]">
-                  <Link href="/">Login/ Register</Link>
+                  <Link href="/">Google Login</Link>
                 </li>
                 <li className="text-sm font-medium text-[#516067]">
                   <Link href="/">FAQs</Link>

@@ -1,20 +1,17 @@
 import { useState } from "react";
 import useAuthContext from "./useAuthContext";
 import useCart from "./useCart";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 const useAddToCart = () => {
-    const {user,userLoading}=useAuthContext();
+    const {user}=useAuthContext();
     const [,,refetch]=useCart();
     const [addCartLoader,setAddCartLoader]=useState(false);
     const addToCart = (product) => {
         setAddCartLoader(true);
-        if(userLoading){
-          return setAddCartLoader(true)
-        }
         if(!user?.email){
-          setAddCartLoader(true);
-          return ;
+          setAddCartLoader(false);
+          return toast.error("You need to login first");
         }
         const updateDoc = {
           email: user?.email,
@@ -33,14 +30,14 @@ const useAddToCart = () => {
           body: JSON.stringify(updateDoc),
         })
           .then((res) => res.json())
-          .then((data) => {
+          .then(() => {
             setAddCartLoader(false);
             refetch();
-            console.log(data);
+            toast.success("Added cart successfully")
           })
-          .catch((err) => {
+          .catch(() => {
             setAddCartLoader(false);
-            console.log(err);
+            toast.error("something is wrong")
           });
       };
     return [addToCart,addCartLoader];

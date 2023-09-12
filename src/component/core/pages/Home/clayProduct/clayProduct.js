@@ -38,7 +38,6 @@ const ClayProduct = ({ isProductsPage }) => {
                   .map((product) => (
                     <ProductCard
                       key={product?._id}
-                      id={product?._id}
                       product={product}
                     />
                   ))}

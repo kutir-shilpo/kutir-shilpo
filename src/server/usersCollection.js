@@ -33,16 +33,13 @@ export const updateUserActivityInDb = async (updateInfo) => {
   updateInfo?.cartItem && updateInfo?.payments
     ? (updateDoc = {
         $set: {
-          $pop: { cartItem: updateInfo?.cartItem },
+          $pop: { cartItem: { $in: { id: updateInfo?.cartItem?.id } } },
           $push: { payments: updateInfo?.payments },
         },
       })
-    : updateInfo?.cartItem
-    ? (updateDoc = {
+    : updateInfo?.cartItem &&
+      (updateDoc = {
         $push: { cartItem: updateInfo?.cartItem },
-      })
-    : (updateDoc = {
-        $push: { payments: updateInfo?.payments },
       });
   return userCollection.updateOne(query, updateDoc);
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const useProducts = () => {
   const [loading, setLoading] = useState(true);
@@ -13,9 +14,11 @@ const useProducts = () => {
         setLoading(false);
         setProducts(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("something was wrong");
+      });
   }, []);
-  return [products,loading];
+  return [products, loading];
 };
 export const useCategoryProducts = (category) => {
   const [loading, setLoading] = useState(true);
@@ -28,9 +31,11 @@ export const useCategoryProducts = (category) => {
         setLoading(false);
         setCategoryProducts(data);
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        toast.error("something was wrong");
+      });
   }, [category]);
-  return [CategoryProducts,loading];
+  return [CategoryProducts, loading];
 };
 
 export default useProducts;

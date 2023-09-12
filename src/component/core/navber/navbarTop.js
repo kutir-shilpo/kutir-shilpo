@@ -3,19 +3,15 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import googleLogo from "@/assets/google-logo.png";
 import useAuthContext from "@/hook/useAuthContext";
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import CartCount from "./cartCount";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const NavbarTop = ({ setIsLogoutShow, isLogoutShow }) => {
   // hooks
-  const [error, setError] = useState("");
   const { user, logout, userLoading, googleUser, setDashboardTitle } =
     useAuthContext();
   const { replace } = useRouter();
-  const search = useSearchParams();
-  const from = search.get('redirectUrl')||"/";
 
   // google login handler
   const googleLoginHandler = () => {
@@ -37,33 +33,41 @@ const NavbarTop = ({ setIsLogoutShow, isLogoutShow }) => {
           body: JSON.stringify(loggedUser),
         })
           .then((res) => res.json())
-          .then((data) => {
-            toast.success("User signed in successfully")
-            console.log(data);
-            replace(from);
+          .then(() => {
+            toast.success("User signed in successfully");
+            replace("/");
           })
           .catch((err) => {
-            toast.dismiss(err.message);
+            toast.error(err.message);
           });
       })
       .catch((err) => {
-        toast.dismiss(err.message);
+        toast.error(err.message);
       });
   };
   // logout handler
   const logoutHandler = () => {
     logout().then(() => {
+      if (path.includes("/dashboard") || path.includes("/product")) {
+        replace("/");
+      }
       toast.success("logout successfully");
     });
   };
 
-  // check out handler
-  const checkoutHandler = () => {
+  // cart Item handler
+  const cartItemHandler = () => {
+    if (!user) {
+      return toast.error("You need to login first");
+    }
     replace("/dashboard");
     setDashboardTitle("cart items");
   };
   // profile button handler
   const profileBtnHandler = () => {
+    if (!user) {
+      return toast.error("You need to login first");
+    }
     replace("/dashboard");
     setDashboardTitle("profile settings");
   };
@@ -88,7 +92,7 @@ const NavbarTop = ({ setIsLogoutShow, isLogoutShow }) => {
               />
             </button>
           </form>
-          <button onClick={checkoutHandler} className="flex items-center mr-4">
+          <button onClick={cartItemHandler} className="flex items-center mr-4">
             <CartCount />
           </button>
           {/*user profile*/}

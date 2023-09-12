@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {toast} from "react-hot-toast";
 
 const useProduct = (id) => {
   const [loading, setLoading] = useState(true);
@@ -12,10 +13,12 @@ const useProduct = (id) => {
         setProduct(data);
         setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("something was wrong")
+      });
   }, [id]);
 
-  return [product,loading];
+  return [product, loading];
 };
 
 export default useProduct;

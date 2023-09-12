@@ -1,7 +1,6 @@
 const Loading = () => {
     return (
         <div className='loader mt-6'>
-            
         </div>
     );
 };
