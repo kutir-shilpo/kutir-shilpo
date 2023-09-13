@@ -12,8 +12,8 @@ input:focus {
 }
 // custom loading
 .loader {
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   height: 35px;
   width: 35px;
   border: 3px solid;
@@ -22,8 +22,8 @@ input:focus {
   animation: 1.5s infinite loader;
 }
 .mini-loader {
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   display: inline-block;
   border: 3px solid;
   border-color: $base-color rgb(197, 229, 246) $base-color rgb(197, 229, 246);
