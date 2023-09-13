@@ -38,7 +38,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             {/* footer menu */}
             <div>
               <h4 className="font-semibold text-[#516067] mb-2">
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
         </div>
         {/* footer bottom part */}
-        <div className="flex justify-between py-5 text-sm">
+        <div className="md:flex justify-between py-5 text-sm">
           <p>Copyright © 2023 KutirShilpo.com | All rights reserved.</p>
           <div className="flex gap-2">
             <Link href="/">privacy</Link> |

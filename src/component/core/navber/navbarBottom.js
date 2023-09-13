@@ -1,31 +1,32 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ActiveLink from "../activeLink/activeLink";
 import useAuthContext from "@/hook/useAuthContext";
 
-const NavbarBottom = ({setIsLogoutShow}) => {
-    const { user } = useAuthContext();
-    
+const NavbarBottom = ({ className, setIsLogoutShow }) => {
+  const { user } = useAuthContext();
 
   // is logged show
   useEffect(() => {
     setIsLogoutShow(false);
-  }, [user,setIsLogoutShow]);
+  }, [user, setIsLogoutShow]);
   return (
-    <div className="bg-slate-100">
-      <div className="container flex gap-4 justify-end text-sm font-semibold">
-        <ActiveLink className="py-3 px-5 text-[#516067]" href="/">
-          Home
-        </ActiveLink>
-        <ActiveLink className="py-3 px-5 text-[#516067]" href="/products">
-          Products
-        </ActiveLink>
-        {user && (
-          <ActiveLink className="py-3 px-5 text-[#516067]" href="/dashboard">
-            Dashboard
+      <div className={`${className} mt-3 sm:mt-0`}>
+        <div className="container sm:bg-slate-100">
+          <div className="bg-slate-100 flex flex-col sm:flex-row gap-2 sm:gap-4 sm:justify-end sm:bg-transparent text-sm font-semibold">
+          <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/">
+            Home
           </ActiveLink>
-        )}
+          <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/products">
+            Products
+          </ActiveLink>
+          {user && (
+            <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/dashboard">
+              Dashboard
+            </ActiveLink>
+          )}
+          </div>
+        </div>
       </div>
-    </div>
   );
 };
 
