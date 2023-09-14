@@ -3,12 +3,13 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import googleLogo from "@/assets/google-logo.png";
 import useAuthContext from "@/hook/useAuthContext";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import CartCount from "./cartCount";
 import { toast } from "react-hot-toast";
 
 const NavbarTop = ({ className,setIsLogoutShow, isLogoutShow }) => {
   // hooks
+  const pathName = usePathname();
   const { user, logout, userLoading, googleUser, setDashboardTitle } =
     useAuthContext();
   const { replace } = useRouter();
@@ -74,7 +75,7 @@ const NavbarTop = ({ className,setIsLogoutShow, isLogoutShow }) => {
 
   return (
       <div className={`${className} mt-3 sm:mt-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-2`}>
-        <form className="w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border border-[#516067]">
+        <form className={`${pathName==="/"||pathName.includes('/products')||"hidden"} w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border border-[#516067]`}>
           <input
             type="text"
             placeholder="Search for Categories"

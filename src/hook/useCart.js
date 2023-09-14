@@ -30,6 +30,7 @@ const useCart = () => {
         setCartLoading(false);
       })
       .catch(() => {
+        setCartLoading(false)
         toast.error("something was wrong")
       });
   };

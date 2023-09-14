@@ -10,7 +10,6 @@ const NavBer = () => {
   // small device states
   const [isLeftOpen,setIsLeftOpen]=useState(false);
   const [isRightOpen,setIsRightOpen]=useState(false);
-
   return (
     <>
       {/* navber top */}
