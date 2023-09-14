@@ -14,8 +14,18 @@ const dashboardItems =[
   },
   {
     _id:3,
+    title:"add product",
+    icon:<Icon className="text-lg relative top-[1px]"  icon="fa-solid:plus-circle" />
+  },
+  {
+    _id:4,
+    title:"manage product",
+    icon:<Icon className="relative top-[2px]"  icon="fa-solid:pen" />
+  },
+  {
+    _id:5,
     title:"payment history",
-    icon:<Icon className="text-lg relative" icon="heroicons-outline:currency-bangladeshi" />
+    icon:<Icon className="text-lg relative top-[2px]" icon="heroicons-outline:currency-bangladeshi" />
   }
 ]
 

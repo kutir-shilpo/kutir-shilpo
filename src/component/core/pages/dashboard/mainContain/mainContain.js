@@ -4,6 +4,8 @@ import React from "react";
 import UserSettings from "./userSettings";
 import CartItems from "./cartItems";
 import PaymentHistory from "./paymentHistory";
+import AddProduct from "./addProduct";
+import ManageProducts from "./manageProducts";
 
 const MainContain = () => {
   const { dashboardTitle } = useAuthContext();
@@ -13,6 +15,10 @@ const MainContain = () => {
         <UserSettings />
       ) : dashboardTitle === "cart items" ? (
         <CartItems />
+      ) : dashboardTitle === "add product" ? (
+        <AddProduct />
+      ) : dashboardTitle === "manage product" ? (
+        <ManageProducts />
       ) : (
         <PaymentHistory />
       )}
