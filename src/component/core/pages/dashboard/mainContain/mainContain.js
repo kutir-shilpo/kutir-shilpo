@@ -10,7 +10,7 @@ import ManageProducts from "./manageProducts";
 const MainContain = () => {
   const { dashboardTitle } = useAuthContext();
   return (
-    <div className="col-span-4 my-8">
+    <div className="my-8">
       {dashboardTitle === "profile settings" ? (
         <UserSettings />
       ) : dashboardTitle === "cart items" ? (
