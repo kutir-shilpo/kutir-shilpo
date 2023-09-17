@@ -19,3 +19,10 @@ export const getProductByCategory = async (category) => {
   const query = { category: category };
   return productsCollection.find(query).toArray();
 };
+export const getProductByTitle = async (title) => {
+  const db = await DbConnect();
+  // console.log(title);
+  const productsCollection = db.collection("products");
+  const query = { title: { $regex: title } };
+  return productsCollection.find(query).toArray();
+};

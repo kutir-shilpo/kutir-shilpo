@@ -7,10 +7,11 @@ import React from "react";
 const ProductByCategory = () => {
   const router = usePathname();
   const category = router.split("/").slice(-1)[0].split("-")[0];
-  const [categoryProducts, loading] = useCategoryProducts(category);
+  const [categoryProducts, categoryLoading] = useCategoryProducts(category);
+  console.log(categoryProducts);
   return (
     <>
-      {!loading ? (
+      {!categoryLoading ? (
         <>
           <div className="mt-6 md:mt-8 ">
             <h2 className="text-xl text-[#516067] mb-4 md:mb-6">
