@@ -1,0 +1,44 @@
+[
+  {
+    "clientName": "Alice Johnson",
+    "clientPicture": "https://i.ibb.co/FBccZN7/client.jpg",
+    "designation": "Ceramic Artist",
+    "rating": 5,
+    "reviewText": "I absolutely love the unique ceramic pieces at this store. The craftsmanship is outstanding, and the glazes used are stunning. It's my go-to place for all things ceramic!"
+  },
+  {
+    "clientName": "Bob Smith",
+    "clientPicture": "https://i.ibb.co/xXsmVnS/client2.jpg",
+    "designation": "Pottery Enthusiast",
+    "rating": 4,
+    "reviewText": "The pottery collection here is fantastic. I've bought several pieces for my home, and they never fail to impress my guests. Great variety and quality."
+  },
+  {
+    "clientName": "Eva Martinez",
+    "clientPicture": "https://i.ibb.co/fFVL2Tv/client3.jpg",
+    "designation": "Art Teacher",
+    "rating": 5,
+    "reviewText": "As an art teacher, I appreciate the educational aspect of this store. They have a range of pottery and ceramic supplies that are perfect for my students. Excellent service, too!"
+  },
+  {
+    "clientName": "David Wilson",
+    "clientPicture": "https://i.ibb.co/HKDPBQc/client4.jpg",
+    "designation": "Ceramics Collector",
+    "rating": 5,
+    "reviewText": "I've been collecting ceramics for years, and this store has some of the most exquisite pieces I've ever seen. The staff is knowledgeable and friendly. Highly recommended!"
+  },
+  {
+    "clientName": "Grace Turner",
+    "clientPicture": "https://i.ibb.co/9vKL1JP/client5.jpg",
+    "designation": "Pottery Beginner",
+    "rating": 4,
+    "reviewText": "I'm new to pottery, and this store has been a great resource for me. They offer beginner-friendly classes and have all the tools I need. The staff is patient and helpful."
+  },
+  {
+    "clientName": "Oliver Davis",
+    "clientPicture": "https://i.ibb.co/D5VY4ww/client6.jpg",
+    "designation": "Ceramics Enthusiast",
+    "rating": 3,
+    "reviewText": "The store has a nice selection, but I wish they had more unique pieces. Still, the quality is good, and the staff is friendly. I hope to see more variety in the future."
+  }
+]
