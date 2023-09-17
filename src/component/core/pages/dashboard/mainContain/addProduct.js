@@ -2,6 +2,7 @@
 import Information from "@/component/icons/information";
 import Button from "@/component/ui/button";
 import useAuthContext from "@/hook/useAuthContext";
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 const AddProduct = () => {
@@ -150,11 +151,11 @@ const AddProduct = () => {
           <input
             type="checkbox"
             {...register("agreed", { required: true })}
-            className="cursor-pointer"
+            className="cursor-pointer h-4 w-4"
           />
-          <span className="text-sm text-[#516067]">
+          <Link href="/trams&conditions" className="relative bottom-[2px] text-sm text-[#516067] border-b border-[#516067]">
             accept trams & condition
-          </span>
+          </Link>
         </label>
         {errors.agreed && (
             <span className="flex gap-1 items-center text-red-500 font-normal">

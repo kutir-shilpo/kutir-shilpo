@@ -90,7 +90,7 @@ const Footer = () => {
           <p>Copyright © 2023 KutirShilpo.com | All rights reserved.</p>
           <div className="flex gap-2">
             <Link href="/">privacy</Link> |
-            <Link href="/">Trams & Condition</Link>
+            <Link href="/trams&conditions">Trams & Condition</Link>
           </div>
         </div>
       </div>

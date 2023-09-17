@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
+
 const useProducts = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
@@ -19,25 +20,26 @@ const useProducts = () => {
         toast.error("something was wrong");
       });
   }, []);
+  // console.log("from use products",products,loading);
   return [products, loading];
 };
 export const useCategoryProducts = (category) => {
-  const [loading, setLoading] = useState(true);
+  const [categoryLoading, setCategoryLoading] = useState(true);
   const [CategoryProducts, setCategoryProducts] = useState([]);
   useEffect(() => {
-    setLoading(true);
+    setCategoryLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_api}api/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
-        setLoading(false);
+        setCategoryLoading(false);
         setCategoryProducts(data);
       })
       .catch(() => {
-        setLoading(false)
+        setCategoryLoading(false)
         toast.error("something was wrong");
       });
   }, [category]);
-  return [CategoryProducts, loading];
+  return [CategoryProducts, categoryLoading];
 };
 
 export default useProducts;

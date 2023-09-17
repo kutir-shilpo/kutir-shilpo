@@ -20,7 +20,7 @@ const NavbarBottom = ({ className, setIsLogoutShow }) => {
             Products
           </ActiveLink>
           {user && (
-            <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/dashboard">
+            <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/profile-settings">
               Dashboard
             </ActiveLink>
           )}

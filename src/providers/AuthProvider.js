@@ -25,9 +25,9 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-  const logout = ()=>{
+  const logout = () => {
     return signOut(auth);
-  }
+  };
 
   const userInfo = {
     user,
