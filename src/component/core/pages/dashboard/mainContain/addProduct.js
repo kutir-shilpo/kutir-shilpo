@@ -55,10 +55,10 @@ const AddProduct = () => {
           <label>
             <input
               value={user?.displayName && user?.displayName}
-              {...register("seller", { required: true })}
+              {...register("ownerName", { required: true })}
               className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
             />
-            {errors.seller && (
+            {errors.ownerName && (
               <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
                 <Information /> required
               </span>
@@ -67,10 +67,10 @@ const AddProduct = () => {
           <label>
             <input
               value={user?.email && user?.email}
-              {...register("sellerName", { required: true })}
+              {...register("ownerEmail", { required: true })}
               className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
             />
-            {errors.sellerName && (
+            {errors.ownerEmail && (
               <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
                 <Information /> required
               </span>
@@ -78,6 +78,19 @@ const AddProduct = () => {
           </label>
         </div>
         {/* third row */}
+        <label>
+            <input
+              value={user?.photoURL && user?.photoURL}
+              {...register("ownerImage", { required: true })}
+              className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
+            />
+            {errors.ownerImage && (
+              <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
+                <Information /> required
+              </span>
+            )}
+          </label>
+        {/* forth row */}
         <label>
           <input
             placeholder="manufacture industry"
@@ -90,7 +103,7 @@ const AddProduct = () => {
             </span>
           )}
         </label>
-        {/* forth row */}
+        {/* fifth row */}
         <div className="grid sm:grid-cols-4 gap-3">
           <label>
             <input
@@ -130,7 +143,7 @@ const AddProduct = () => {
             )}
           </label>
         </div>
-        {/* fifth row */}
+        {/* sixth row */}
         <label>
           <textarea
             cols={50}
