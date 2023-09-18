@@ -29,9 +29,16 @@ export const getUserAddedProduct=async(email)=>{
 
 // search product
 export const getProductByTitle = async (title) => {
-  const db = await DbConnect();
   // console.log(title);
+  const db = await DbConnect();
   const productsCollection = db.collection("products");
   const query = { title: { $regex: title } };
   return productsCollection.find(query).toArray();
 };
+
+// add quarry
+export const addProductInDb=async(product)=>{
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  return productsCollection.insertOne(product);
+}
