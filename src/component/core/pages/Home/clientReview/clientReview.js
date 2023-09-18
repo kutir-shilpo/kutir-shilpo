@@ -17,8 +17,6 @@ const ClientReview = () => {
     setCurrentTab(i);
   };
 
-  console.log(clientsReviews);
-
   return (
     <>
       {!clientsLoading ? (

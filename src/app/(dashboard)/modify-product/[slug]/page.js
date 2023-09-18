@@ -1,4 +1,4 @@
-import ModifyProduct from '@/component/core/pages/dashboard/mainContain/modifyProduct';
+import ModifyProduct from "@/component/core/pages/dashboard/mainContain/modifyProduct";
 
 const Modifyproduct = () => {
     return (
