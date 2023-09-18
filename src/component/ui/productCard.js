@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
         height={400}
         width={200}
         className="h-auto w-full"
-        src={product?.image}
+        src={product?.image||product?.productImage}
         alt="product image"
       />
       <div className="p-2 flex items-baseline gap-[3px]">
