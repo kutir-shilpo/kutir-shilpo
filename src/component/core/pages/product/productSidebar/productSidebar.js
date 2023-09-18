@@ -7,8 +7,8 @@ const ProductSidebar = ({ product, loading }) => {
     <div className="border-l flex flex-col gap-1 bg-slate-50 rounded-r p-6 h-full">
       {!loading? (
         <>
-          <p>Available Quantity: {quantity}.</p>
-          <p>Sells: {sells}.</p>
+          <p>Available Quantity: {quantity||"Out of Stock"}.</p>
+          <p>Sells: {sells||0}.</p>
           <p>Manufacture: {manufactureAuthority}.</p>
           <p>Manufacture-Date: {madeDate}.</p>
           <p className="flex gap-1 items-center">

@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [productImageLoader, setProductImageLoader] = useState(false);
   const [loader, setLoader] = useState(false);
   const { user } = useAuthContext();
-  const {replace}=useRouter();
+  const { replace } = useRouter();
   const {
     register,
     handleSubmit,
@@ -26,7 +26,7 @@ const AddProduct = () => {
     if (!productImage) {
       return setError(true);
     }
-    const newProduct = { ...data, productImage };
+    const newProduct = { ...data, image: productImage };
     fetch(`${process.env.NEXT_PUBLIC_api}api/addProduct`, {
       method: "POST",
       headers: {
@@ -36,12 +36,12 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        replace('/')
+        replace("/");
         console.log(data);
-        setLoader(false)
+        setLoader(false);
       })
       .catch((err) => {
-        setLoader(false)
+        setLoader(false);
         console.log(err);
         toast.error(err?.message);
       });
@@ -75,7 +75,7 @@ const AddProduct = () => {
   return (
     <>
       {user?.photoURL ? (
-        <div className="mx-auto w-3/4 md:w-2/4 rounded p-5 bg-slate-100">
+        <div className="mx-auto w-[98%] md:w-[85%] lg:w-3/4 xl:w-2/4 rounded p-5 bg-slate-100">
           <h2 className="text-lg mb-3 rounded text-[#516067]">Add Product</h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -87,10 +87,10 @@ const AddProduct = () => {
                 <input
                   type="text"
                   placeholder="product Name"
-                  {...register("productName", { required: true })}
+                  {...register("title", { required: true })}
                   className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
                 />
-                {errors.productName && (
+                {errors.title && (
                   <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
                     <Information /> required
                   </span>
@@ -168,10 +168,10 @@ const AddProduct = () => {
                 <input
                   type="text"
                   placeholder="manufacture industry"
-                  {...register("manufactureIndustry", { required: true })}
+                  {...register("manufactureAuthority", { required: true })}
                   className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
                 />
-                {errors.manufactureIndustry && (
+                {errors.manufactureAuthority && (
                   <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
                     <Information /> required
                   </span>
@@ -199,10 +199,10 @@ const AddProduct = () => {
               <label className="col-span-2">
                 <input
                   type="date"
-                  {...register("manufactureDate", { required: true })}
+                  {...register("madeDate", { required: true })}
                   className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
                 />
-                {errors.manufactureDate && (
+                {errors.madeDate && (
                   <span className="flex gap-1 items-center text-red-500 font-normal mt-[2px]">
                     <Information /> required
                   </span>
@@ -271,10 +271,11 @@ const AddProduct = () => {
                 </span>
               )}
             </div>
-
-            <Button disabled={productImageLoader||loader} type="submit">
-              Add product
-            </Button>
+            {productImageLoader || loader ? (
+              <Button>Add product</Button>
+            ) : (
+              <Button type="submit">Add product</Button>
+            )}
           </form>
         </div>
       ) : (

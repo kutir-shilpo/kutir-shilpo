@@ -55,7 +55,7 @@ const ManageProducts = () => {
                     />
                   </td>
                   <td className="col-span-4 py-1 px-2 border-r">
-                    {item?.name || "unknown"}
+                    {item?.title || "unknown"}
                   </td>
                   <td className="text-right col-span-2 py-1 px-2 border-r">
                     {item?.price || 0}৳
