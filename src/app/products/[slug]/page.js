@@ -8,7 +8,6 @@ const ProductByCategory = () => {
   const router = usePathname();
   const category = router.split("/").slice(-1)[0].split("-")[0];
   const [categoryProducts, categoryLoading] = useCategoryProducts(category);
-  console.log(categoryProducts);
   return (
     <>
       {!categoryLoading ? (
