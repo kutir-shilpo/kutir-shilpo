@@ -19,3 +19,26 @@ export const getProductByCategory = async (category) => {
   const query = { category: category };
   return productsCollection.find(query).toArray();
 };
+// users added product
+export const getUserAddedProduct=async(email)=>{
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  const query = {ownerEmail:email};
+  return productsCollection.find(query).toArray();
+}
+
+// search product
+export const getProductByTitle = async (title) => {
+  // console.log(title);
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  const query = { title: { $regex: title } };
+  return productsCollection.find(query).toArray();
+};
+
+// add quarry
+export const addProductInDb=async(product)=>{
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  return productsCollection.insertOne(product);
+}

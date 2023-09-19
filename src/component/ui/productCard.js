@@ -5,19 +5,19 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
-  const {user}=useAuthContext();
-  const [addToCart,cartLoader]=useAddToCart();
-  
+  const { user } = useAuthContext();
+  const [addToCart, cartLoader] = useAddToCart();
+
   const { replace } = useRouter();
-  const viewDetailsHandler=(id)=>{
+  const viewDetailsHandler = (id) => {
     if (!user) {
       return toast.error("You need to login first");
     }
-    replace(`/product/${id}`)
-  }
+    replace(`/product/${id}`);
+  };
   return (
     <div className="flex flex-col border rounded-t rounded-b-lg overflow-hidden">
       <Image
@@ -27,8 +27,23 @@ const ProductCard = ({ product }) => {
         src={product?.image}
         alt="product image"
       />
+      <div className="p-2 flex items-baseline gap-[3px]">
+        <Image
+          height={25}
+          width={25}
+          className="rounded-full"
+          src={
+            product?.ownerImage ||
+            "https://lh3.googleusercontent.com/a/ACg8ocJjxmmknCRqhPi5iqVvIh4lFpHvBXr5nv0r1hpRF0l6Vw=s96-c"
+          }
+          alt="owner profile"
+        />
+        <h5 className="relative bottom-[5px] font-semibold text-sm text-[#516067]">
+          {product?.ownerName || "kutir shilpo"}
+        </h5>
+      </div>
       <div className="px-2">
-        <span className="flex mt-4 text-sm text-[#8298a2]">
+        <span className="flex text-sm text-[#8298a2]">
           <Icon icon="heroicons-outline:star" />
           <Icon icon="heroicons-outline:star" />
           <Icon icon="heroicons-outline:star" />
@@ -44,15 +59,19 @@ const ProductCard = ({ product }) => {
       </div>
       <button
         className="mt-auto font-semibold text-[#516067] w-full text-center border border-[#516067]"
-        onClick={()=>viewDetailsHandler(product?._id)}
+        onClick={() => viewDetailsHandler(product?._id)}
       >
         view Detail
       </button>
       <button
-      onClick={()=>addToCart(product)}
+        onClick={() => addToCart(product)}
         className="block w-full text-white font-semibold text-sm bg-[#516067] py-1"
       >
-        {!cartLoader?"Add to Cart":<div className="h-4 w-4 mini-loader"></div>}
+        {!cartLoader ? (
+          "Add to Cart"
+        ) : (
+          <div className="h-4 w-4 mini-loader"></div>
+        )}
       </button>
     </div>
   );

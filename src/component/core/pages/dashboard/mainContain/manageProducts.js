@@ -1,16 +1,32 @@
-"use clint";
-import useCart from "@/hook/useCart";
-import { Icon } from "@iconify/react";
+"use client";
+import Delete from "@/component/icons/delete";
+import Edit from "@/component/icons/edit";
+import useAuthContext from "@/hook/useAuthContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const CartItems = () => {
-  // todo: cart items problem must be solve
-  const [cartItems, cartLoading] = useCart();
+const ManageProducts = () => {
+  const [addedItems, setAddedItems] = useState([]);
+  const [addedItemsLoader, setAddedItemsLoader] = useState(true);
+  const { user } = useAuthContext();
+  useEffect(() => {
+    setAddedItemsLoader(true)
+    fetch(
+      `${process.env.NEXT_PUBLIC_api}api/userAddedProduct?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setAddedItemsLoader(false);
+        setAddedItems(data);
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }, [user]);
   return (
     <div className="w-full md:w-2/3 mx-auto text-[#516067]">
       <h2 className="text-xl pb-1">
-        <span className="border-b-2 border-[#516067]">Cart</span> Items
+        <span className="border-b-2 border-[#516067]">Manage</span> your Product
       </h2>
       <table className="mt-3 border rounded">
         <thead>
@@ -19,13 +35,13 @@ const CartItems = () => {
             <th className="col-span-2 py-1 px-2">image</th>
             <th className="col-span-4 py-1 px-2">Name</th>
             <th className="col-span-2 py-1 px-2">৳</th>
-            <th className="col-span-2 py-1 px-2">Checkout</th>
-            <th className="col-span-1 py-1 px-2">delete</th>
+            <th className="col-span-2 py-1 px-2">Modify</th>
+            <th className="col-span-1 py-1 px-2">Delete</th>
           </tr>
         </thead>
-        {!cartLoading ? (
-          cartItems && cartItems?.length > 0 ? (
-            cartItems.map((item, index) => (
+        {!addedItemsLoader ? (
+          addedItems && addedItems?.length > 0 ? (
+            addedItems.map((item, index) => (
               <tbody key={index}>
                 <tr className="border-b text-center grid grid-cols-12 items-center">
                   <td className="col-span-1 py-1 px-2 border-r">{index + 1}</td>
@@ -39,24 +55,18 @@ const CartItems = () => {
                     />
                   </td>
                   <td className="col-span-4 py-1 px-2 border-r">
-                    {item?.name}
+                    {item?.title || "unknown"}
                   </td>
                   <td className="text-right col-span-2 py-1 px-2 border-r">
-                    {item?.price}৳
+                    {item?.price || 0}৳
                   </td>
                   <td className="col-span-2 flex justify-center items-center h-full py-1 px-2 border-r">
-                    <Link href={`/checkout/${item._id}`}>
-                      <Icon
-                        className="text-2xl"
-                        icon="heroicons-solid:credit-card"
-                      />
+                    <Link href={`/modify-product/${item?._id}`}>
+                      <Edit className="text-lg" />
                     </Link>
                   </td>
                   <td className="col-span-1 py-1 px-2 flex justify-center">
-                    <Icon
-                      className="text-lg text-red-600 cursor-pointer"
-                      icon="heroicons-outline:trash"
-                    />
+                    <Delete className="text-xl text-red-600 cursor-pointer" />
                   </td>
                 </tr>
               </tbody>
@@ -80,4 +90,4 @@ const CartItems = () => {
   );
 };
 
-export default CartItems;
+export default ManageProducts;
