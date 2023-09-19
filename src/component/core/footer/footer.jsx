@@ -1,20 +1,27 @@
 "use client";
+import whiteLogo from "@/assets/white-logo.png"
 import Button from "@/component/ui/button";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-50 md:mt-12">
+    <div className="bg-[#516067] text-slate-200 md:mt-12">
       <div className="container mt-10">
         {/* footer top part */}
         <div className="grid md:grid-cols-2 gap-4 border-b py-8">
           {/* logo */}
           <div className="h-full flex flex-col">
-            <h4 className="text-[#516067] text-xl md:text-3xl font-semibold">
-              Kutir Shilpo
-            </h4>
-            <h4 className="mt-auto text-lg text-[#516067]">Follow Us:</h4>
+            <Link href="/" className=" text-xl md:text-3xl font-semibold">
+              <Image
+              src={whiteLogo}
+              width={250}
+              height={250}
+              alt="white logo"
+              />
+            </Link>
+            <h4 className="mt-auto text-lg ">Follow Us:</h4>
             <ul className="flex gap-3 mt-3">
               <li className="h-8 w-8 flex justify-center items-center bg-[#8298a2] text-white rounded">
                 <Link href="/">
@@ -41,36 +48,36 @@ const Footer = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             {/* footer menu */}
             <div>
-              <h4 className="font-semibold text-[#516067] mb-2">
-                <span className="border-b-2 border-[#516067]">Menu</span>
+              <h4 className="font-semibold  mb-2">
+                <span className="border-b-2 border-slate-100">Menu</span>
               </h4>
               <ul className="flex flex-col gap-1">
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/">Home</Link>
                 </li>
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/products">Products</Link>
                 </li>
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/">Google Login</Link>
                 </li>
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/">FAQs</Link>
                 </li>
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/">Contract</Link>
                 </li>
-                <li className="text-sm font-medium text-[#516067]">
+                <li className="text-sm font-medium ">
                   <Link href="/">Community</Link>
                 </li>
               </ul>
             </div>
             {/* feedback submit */}
             <div>
-              <h4 className="font-semibold text-[#516067] mb-2">
-                <span className="border-b-2 border-[#516067]">Feedback</span>
+              <h4 className="font-semibold  mb-2">
+                <span className="border-b-2 border-slate-100">Feedback</span>
               </h4>
-              <p className="text-sm text-[#516067]">
+              <p className="text-sm ">
                 Give Your Valuable Review, We allows appreciate your positive
                 review.
               </p>

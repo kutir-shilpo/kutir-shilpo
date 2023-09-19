@@ -15,13 +15,13 @@ const ClayProduct = ({ isProductsPage }) => {
             <span className="border-b-2 border-[#516067]">Clay</span> Products
           </h2>
           {/* show products */}
-          <div className="grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+          <div className="grid gap-2 md:gap-4 xl:gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {!isProductsPage ? (
               <>
                 {/* home page clay products show */}
                 {products
                   .filter((product) => product.category === "clay")
-                  .slice(0, 6)
+                  .slice(0, 4)
                   .map((product) => (
                     <ProductCard
                       key={product?._id}

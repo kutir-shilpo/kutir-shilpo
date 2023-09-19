@@ -100,7 +100,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow }) => {
         onSubmit={handleSubmit(onSubmit)}
         className={`${
           pathName === "/" || pathName.includes("/products") || "hidden"
-        } w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border border-[#516067]`}
+        } w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border-2 border-[#516067] `}
       >
         <input
           {...register("searchFiled")}
@@ -110,7 +110,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow }) => {
         />
         <button type="submit">
           <Icon
-            className=" absolute right-3 top-[11px] text-[#516067]"
+            className=" absolute right-3 top-[11px]"
             icon="heroicons-outline:search"
           />
         </button>

@@ -20,7 +20,7 @@ const BestProductCard = ({ product, id }) => {
   return (
     <div
       onClick={()=>viewDetailsHandler(id)}
-      className="bestProductCard relative flex flex-col border rounded-t rounded-b-lg overflow-hidden cursor-pointer"
+      className="bestProductCard relative bg-white shadow hover:shadow-md flex flex-col border rounded-t rounded-b-lg overflow-hidden cursor-pointer"
     >
       <Image
         height={400}
