@@ -100,7 +100,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow }) => {
         onSubmit={handleSubmit(onSubmit)}
         className={`${
           pathName === "/" || pathName.includes("/products") || "hidden"
-        } w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border-2 border-[#516067] `}
+        } w-full sm:w-[30vw] relative mr-20 flex items-center justify-between py-2 px-3 rounded-full border border-[#516067] `}
       >
         <input
           {...register("searchFiled")}

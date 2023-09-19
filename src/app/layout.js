@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body suppressHydrationWarning={true} className={inter.className}>
         <AuthProvider>
-            <div className="flex bg-slate-50 flex-col min-h-screen">
+            <div className="flex bg-slate-100 flex-col min-h-screen">
               <NavBer />
               <div className="container">{children}</div>
               <div className="mt-auto">
