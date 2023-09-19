@@ -1,5 +1,5 @@
 "use client";
-import whiteLogo from "@/assets/white-logo.png"
+import blackLogo from "@/assets/black-logo.png"
 import Button from "@/component/ui/button";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#516067] text-slate-200 md:mt-12">
+    <div className="bg-white text-[#516067] md:mt-12">
       <div className="container mt-10">
         {/* footer top part */}
         <div className="grid md:grid-cols-2 gap-4 border-b py-8">
@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="h-full flex flex-col">
             <Link href="/" className=" text-xl md:text-3xl font-semibold">
               <Image
-              src={whiteLogo}
+              src={blackLogo}
               width={250}
               height={250}
               alt="white logo"

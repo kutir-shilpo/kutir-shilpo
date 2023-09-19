@@ -17,7 +17,7 @@ const NavBer = () => {
     <>
       {/* navber top */}
       <div className={`sticky top-0 z-50`}>
-        <div className="container bg-slate-200 text-[#516067] py-3 sm:py-4 sm:flex justify-between items-center">
+        <div className="container text-[#516067] bg-white shadow-b shadow py-3 sm:py-4 sm:flex justify-between items-center">
           <Link href="/" className="text-2xl md:text-3xl font-semibold">
             <Image src={backLogo} width={200} height={200} alt="white logo" />
           </Link>
