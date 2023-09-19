@@ -31,7 +31,7 @@ const ClientReview = () => {
                 return (
                   <div key={client?._id}>
                     {currentTab === i && (
-                      <div className="flex flex-col lg:w-[75%] mx-auto bg-slate-100 py-14 px-16 rounded-ss-3xl rounded-ee-3xl h-[280px]">
+                      <div className="flex flex-col lg:w-[75%] mx-auto bg-white border shadow py-14 px-16 rounded-ss-3xl rounded-ee-3xl h-[280px]">
                         <p className="flex items-center">
                           &ldquo;{client?.reviewText}&rdquo;
                         </p>

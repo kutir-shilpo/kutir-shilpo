@@ -25,7 +25,7 @@ const dashboardItems =[
     _id:4,
     title:"manage products",
     href:"/manage-products",
-    icon:<Icon className="relative top-[2px]"  icon="fa-solid:pen" />
+    icon:<Icon className="text-sm relative top-[2px]"  icon="iwwa:settings" />
   },
   {
     _id:5,
@@ -43,7 +43,7 @@ const TopBar = () => {
         {dashboardItems?.map(item=><Link 
         key={item?._id}
         href={item?.href}
-        className={`${currentPage===item?.href&&"bg-slate-50 font-normal text-[#8298a2]"} flex cursor-pointer gap-1 py-2 px-6 items-center`}>
+        className={`${currentPage===item?.href&&"bg-white font-normal text-[#8298a2]"} flex cursor-pointer gap-1 py-2 px-6 items-center`}>
           {item?.icon} {item?.title}</Link>)}
       </div>
     </div>

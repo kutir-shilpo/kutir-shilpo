@@ -75,13 +75,43 @@ const AddProduct = () => {
   return (
     <>
       {user?.photoURL ? (
-        <div className="mx-auto w-[98%] md:w-[85%] lg:w-3/4 xl:w-2/4 rounded p-5 bg-slate-100">
-          <h2 className="text-lg mb-3 rounded text-[#516067]">Add Product</h2>
+        <div className="mx-auto w-[98%] md:w-[85%] lg:w-3/4 xl:w-2/4 rounded border p-8 shadow bg-white">
+          <h2 className="text-lg mb-3 border-b rounded text-[#516067]">
+            Owner Information
+          </h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-2"
           >
             {/* first row */}
+            <div className="grid sm:grid-cols-2 gap-3">
+              <label>
+                <input
+                  value={user?.displayName && user?.displayName}
+                  {...register("ownerName")}
+                  className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
+                />
+              </label>
+              <label>
+                <input
+                  value={user?.email && user?.email}
+                  {...register("ownerEmail")}
+                  className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
+                />
+              </label>
+            </div>
+            {/* second row */}
+            <label>
+              <input
+                value={user?.photoURL && user?.photoURL}
+                {...register("ownerImage")}
+                className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
+              />
+            </label>
+            <h2 className="text-lg mt-2 mb-1 border-b rounded text-[#516067]">
+              Product Information
+            </h2>
+            {/* third row */}
             <div className="grid sm:grid-cols-4 gap-3">
               <label className="col-span-3">
                 <input
@@ -110,7 +140,7 @@ const AddProduct = () => {
                 )}
               </label>
             </div>
-            {/* second row */}
+            {/* forth row */}
             <div className="w-full">
               <label
                 htmlFor="productImage"
@@ -137,31 +167,7 @@ const AddProduct = () => {
                 </span>
               )}
             </div>
-            {/* third row */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <label>
-                <input
-                  value={user?.displayName && user?.displayName}
-                  {...register("ownerName")}
-                  className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
-                />
-              </label>
-              <label>
-                <input
-                  value={user?.email && user?.email}
-                  {...register("ownerEmail")}
-                  className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
-                />
-              </label>
-            </div>
-            {/* forth row */}
-            <label>
-              <input
-                value={user?.photoURL && user?.photoURL}
-                {...register("ownerImage")}
-                className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
-              />
-            </label>
+
             {/* fifth row */}
             <div className="grid sm:grid-cols-5 gap-3">
               <label className="col-span-3">

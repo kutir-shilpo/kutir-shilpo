@@ -6,7 +6,7 @@ import Button from "@/component/ui/button";
 const HeroSection = () => {
   return (
     <>
-      <div className="grid md:grid-cols-2 bg-slate-50 rounded-lg mt-8 justify-between">
+      <div className="grid md:grid-cols-2 bg-white rounded-lg mt-8 justify-between">
         <div className="p-10 xl:p-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-normal">Take Hold Of <br /> Peaceful Beauty</h2>
           <p className="my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo quia repudiandae et molestias, eligendi fuga beatae modi pariatur dolor, voluptatum quae facere velit facilis soluta.</p>
