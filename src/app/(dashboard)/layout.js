@@ -5,7 +5,7 @@ const layout = ({ children }) => {
   return (
     <>
       <TopBar />
-      <div className="mt-8 md:mt-10">{children}</div>
+      <div className="mt-2 xl:mt-10">{children}</div>
     </>
   );
 };

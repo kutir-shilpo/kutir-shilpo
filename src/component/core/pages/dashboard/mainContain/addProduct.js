@@ -183,7 +183,7 @@ const AddProduct = () => {
                   </span>
                 )}
               </label>
-              <label className="col-span-2">
+              <label className="sm:col-span-2">
                 <select
                   className="w-full border text-[#516067] bg-slate-50 p-2 rounded focus:bg-white"
                   {...register("category")}

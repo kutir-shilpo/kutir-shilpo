@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow }) => {
+const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) => {
   // auth context
   const pathName = usePathname();
   const {
@@ -119,6 +119,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow }) => {
       <div className="flex flex-row-reverse sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-2">
         <Link href="/cart-items"
           className="relative top-[2px] flex items-center sm:mr-4"
+          onClick={()=>setIsLeftOpen(prev=>prev=!prev)}
         >
           <CartCount />
         </Link>

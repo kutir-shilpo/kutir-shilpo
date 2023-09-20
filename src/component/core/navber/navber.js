@@ -36,7 +36,7 @@ const NavBer = () => {
 
       {/* small device navbar */}
       <div className="container">
-        <div className="sm:hidden p-3 px-7 rounded bg-slate-50 flex justify-between">
+        <div className="sm:hidden p-3 px-7 rounded bg-white flex justify-between">
           <BarLeft
             onClick={() => setIsLeftOpen(!isLeftOpen)}
             className="text-2xl"
@@ -48,14 +48,16 @@ const NavBer = () => {
         </div>
         {/* mobile navbar */}
         <NavbarTop
-          className={`${isLeftOpen ? "sm:hidden flex" : "hidden"}`}
+          className={`${isLeftOpen ? "sm:hidden flex" : "hidden"} bg-white rounded p-5`}
           setIsLogoutShow={setIsLogoutShow}
           isLogoutShow={isLogoutShow}
+          setIsLeftOpen={setIsLeftOpen}
         />
       </div>
       <NavbarBottom
         className={`${isRightOpen ? "sm:hidden flex" : "hidden"}`}
         setIsLogoutShow={setIsLogoutShow}
+        setIsRightOpen={setIsRightOpen}
       />
     </>
   );
