@@ -52,7 +52,7 @@ const TopBar = () => {
   const currentPage = usePathname();
   return (
     <div className="h-full flex flex-col lg:flex-row items-end lg:justify-end text-[#516067] rounded">
-      <div className="lg:hidden mt-2 py-2 bg-white px-4 rounded shadow">
+      <div className="lg:hidden mt-2 py-2 bg-white sm:bg-slate-50 px-4 rounded shadow">
         <Dashboard
           onClick={() => setBarShow(!barShow)}
           className="text-2xl"
