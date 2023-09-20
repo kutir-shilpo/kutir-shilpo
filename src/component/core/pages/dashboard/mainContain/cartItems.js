@@ -8,11 +8,11 @@ const CartItems = () => {
   // todo: cart items problem must be solve
   const [cartItems, cartLoading] = useCart();
   return (
-    <div className="w-full md:w-2/3 mx-auto text-[#516067]">
+    <div className="w-full overflow-x-scroll xl:w-2/3 mx-auto text-[#516067]">
       <h2 className="text-xl pb-1">
         <span className="border-b-2 border-[#516067]">Cart</span> Items
       </h2>
-      <table className="mt-3 border rounded">
+      <table className="mt-3 mx-auto w-[500px] sm:min-w-full border rounded">
         <thead>
           <tr className="grid grid-cols-12 items-center border-b bg-slate-200">
             <th className="col-span-1 py-1 px-2">#</th>
@@ -20,7 +20,12 @@ const CartItems = () => {
             <th className="col-span-4 py-1 px-2">Name</th>
             <th className="col-span-2 py-1 px-2">৳</th>
             <th className="col-span-2 py-1 px-2">Checkout</th>
-            <th className="col-span-1 py-1 px-2">delete</th>
+            <th className="col-span-1 py-1 px-2 flex justify-center">
+              <Icon
+                className="text-lg text-red-600 cursor-pointer"
+                icon="heroicons-outline:trash"
+              />
+            </th>
           </tr>
         </thead>
         {!cartLoading ? (
