@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
     replace(`/product/${id}`);
   };
   return (
-    <div className="flex flex-col p-3 bg-white text-[#516067] duration-300 hover:bg-slate-100 shadow hover:shadow-md border rounded-t rounded-b-lg overflow-hidden">
+    <div className="flex flex-col p-3 bg-white text-[#516067] duration-300 hover:bg-slate-100 shadow-md hover:shadow-lg border hover:border-slate-300 rounded-t rounded-b-lg overflow-hidden">
       <div
         onClick={() => viewDetailsHandler(product?._id)}
         className="grid cursor-pointer gap-2 grid-cols-2 mb-2"
