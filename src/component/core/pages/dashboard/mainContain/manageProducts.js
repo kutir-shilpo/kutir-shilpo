@@ -14,7 +14,7 @@ const ManageProducts = () => {
   useEffect(() => {
     setAddedItemsLoader(true);
     fetch(
-      `${process.env.NEXT_PUBLIC_api}api/userAddedProduct?email=${user?.email}`
+      `/api/userAddedProduct?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -28,7 +28,7 @@ const ManageProducts = () => {
   }, [user]);
   // delete product
   const deleteProductHandler = (id) => {
-    fetch(`${process.env.NEXT_PUBLIC_api}api/modifyProduct?id=${id}`, {
+    fetch(`/api/modifyProduct?id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const ManageProducts = () => {
         // console.log(data);
         // refetch manage items
         fetch(
-          `${process.env.NEXT_PUBLIC_api}api/userAddedProduct?email=${user?.email}`
+          `/api/userAddedProduct?email=${user?.email}`
         )
           .then((res) => res.json())
           .then((data) => {

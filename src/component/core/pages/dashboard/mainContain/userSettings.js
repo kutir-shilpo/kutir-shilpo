@@ -10,7 +10,7 @@ const UserSettings = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useAuthContext();
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_api}api/users?email=${user?.email}`)
+    fetch(`/api/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrentUser(data);

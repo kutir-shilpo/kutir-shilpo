@@ -22,7 +22,7 @@ const useAddToCart = () => {
         price: product?.price,
       },
     };
-    fetch(`${process.env.NEXT_PUBLIC_api}api/users`, {
+    fetch(`/api/users`, {
       method: "PATCH",
       headers: {
         "contain-type": "application/json",
@@ -32,7 +32,7 @@ const useAddToCart = () => {
       .then((res) => res.json())
       .then(() => {
         // refetch cart item
-        fetch(`${process.env.NEXT_PUBLIC_api}api/users?email=${user?.email}`)
+        fetch(`/api/users?email=${user?.email}`)
           .then((res) => res.json())
           .then((data) => {
             setCartItems(data?.cartItem);

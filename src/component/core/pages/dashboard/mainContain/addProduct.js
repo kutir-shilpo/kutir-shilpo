@@ -27,7 +27,7 @@ const AddProduct = () => {
       return setError(true);
     }
     const newProduct = { ...data, image: productImage };
-    fetch(`${process.env.NEXT_PUBLIC_api}api/addProduct`, {
+    fetch(`/api/addProduct`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",

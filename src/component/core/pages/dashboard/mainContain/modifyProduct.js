@@ -30,7 +30,7 @@ const ModifyProduct = () => {
     const modifiedProduct = { id:product._id,...data, image: productImage||product?.image };
     // console.log("modified product",modifiedProduct);
     // modified product 
-    fetch(`${process.env.NEXT_PUBLIC_api}api/modifyProduct`, {
+    fetch(`/api/modifyProduct`, {
       method: "PATCH",
       headers: {
         "content-Type": "application/json",

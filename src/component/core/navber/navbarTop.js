@@ -45,7 +45,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) =>
           metadata: data?.user?.metadata,
         };
         // add user in mongodb
-        fetch(`${process.env.NEXT_PUBLIC_api}api/users`, {
+        fetch(`/api/users`, {
           method: "PUT",
           headers: {
             "content-Type": "application/json",

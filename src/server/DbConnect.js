@@ -1,4 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
+// const cors = require('cors');
 /**
  * @type {import("mongodb").Db}
  */

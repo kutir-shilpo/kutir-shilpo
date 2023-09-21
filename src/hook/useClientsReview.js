@@ -7,7 +7,7 @@ const useClientsReview = () => {
   const [clientLoading, setClientLoading] = useState(true);
   const [clientsReviews, setClientsReviews] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_api}api/clientsReview`)
+    fetch(`/api/clientsReview`)
       .then((res) => res.json())
       .then((data) => {
         setClientsReviews(data);
