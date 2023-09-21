@@ -23,8 +23,8 @@ const BestProductCard = ({ product, id }) => {
       className="bestProductCard relative bg-white shadow-md hover:shadow-lg flex flex-col border hover:border-slate-300 rounded-t rounded-b-lg overflow-hidden cursor-pointer"
     >
       <Image
-        height={400}
-        width={200}
+        height={200}
+        width={100}
         className={`${!product?.image&&"max-h-48"} h-full w-full`}
         src={product?.image}
         alt="product image"

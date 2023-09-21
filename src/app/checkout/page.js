@@ -1,3 +1,7 @@
+
+export const metadata = {
+    title: "Kutir Shilpo-checkout",
+  };
 const Checkout = () => {
     return (
         <div>

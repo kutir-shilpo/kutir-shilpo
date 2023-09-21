@@ -1,8 +1,6 @@
-import React from "react";
-
 const TramsAndConditions = () => {
   return (
-    <div className="mt-8 md:mt-10">
+    <div className="mt-8 md:mt-10 bg-white p-8 md:p-10 rounded shadow">
       <h2 className="text-xl text-[#516067] pb-1">
         <span className="border-b-2 border-[#516067]">Glass</span> Products
       </h2>

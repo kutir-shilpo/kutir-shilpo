@@ -27,27 +27,12 @@ const ProductCard = ({ product }) => {
       >
         <div>
           <Image
-            height={400}
-            width={200}
+            height={200}
+            width={100}
             className="h-auto border rounded w-full"
             src={product?.image}
             alt="product image"
           />
-          {/* <div className="my-2 flex items-center gap-1">
-            <Image
-              height={20}
-              width={20}
-              className="rounded-full"
-              src={
-                product?.ownerImage ||
-                "https://lh3.googleusercontent.com/a/ACg8ocJjxmmknCRqhPi5iqVvIh4lFpHvBXr5nv0r1hpRF0l6Vw=s96-c"
-              }
-              alt="owner profile"
-            />
-            <h5 className="font-semibold text-sm">
-              {product?.ownerName || "kutir shilpo"}
-            </h5>
-          </div> */}
         </div>
         <div className="">
           <h4 className="text-sm font-semibold uppercase">{product?.title}</h4>

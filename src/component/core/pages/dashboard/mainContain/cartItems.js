@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const CartItems = () => {
   // todo: cart items problem must be solve
-  const [cartItems, cartLoading] = useCart();
+  const [cartItems, cartLoading,deleteCartItem] = useCart();
   return (
     <div className="w-full overflow-x-scroll xl:w-2/3 mx-auto text-[#516067]">
       <h2 className="text-xl pb-1">
@@ -50,7 +50,7 @@ const CartItems = () => {
                     {item?.price}৳
                   </td>
                   <td className="col-span-2 flex justify-center items-center h-full py-1 px-2 border-r">
-                    <Link href={`/checkout/${item._id}`}>
+                    <Link href={`/checkout/${item.id}`}>
                       <Icon
                         className="text-2xl"
                         icon="heroicons-solid:credit-card"
@@ -59,6 +59,7 @@ const CartItems = () => {
                   </td>
                   <td className="col-span-1 py-1 px-2 flex justify-center">
                     <Icon
+                    onClick={()=>deleteCartItem(item?.id)}
                       className="text-lg text-red-600 cursor-pointer"
                       icon="heroicons-outline:trash"
                     />

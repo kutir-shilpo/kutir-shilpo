@@ -2,6 +2,9 @@ import BambooProduct from "@/component/core/pages/Home/bambooProduct/bambooProdu
 import ClayProduct from "@/component/core/pages/Home/clayProduct/clayProduct";
 import GlassProducts from "@/component/core/pages/Home/glassProduct/glassProduct";
 
+export const metadata = {
+    title: "Kutir Shilpo-products",
+  };
 const Products = () => {
     return (
         <>

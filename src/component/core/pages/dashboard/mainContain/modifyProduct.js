@@ -28,7 +28,7 @@ const ModifyProduct = () => {
   const onSubmit = (data) => {
     setLoader(true);
     const modifiedProduct = { id:product._id,...data, image: productImage||product?.image };
-    console.log("modified product",modifiedProduct);
+    // console.log("modified product",modifiedProduct);
     // modified product 
     fetch(`${process.env.NEXT_PUBLIC_api}api/modifyProduct`, {
       method: "PATCH",
@@ -41,7 +41,7 @@ const ModifyProduct = () => {
       .then((data) => {
         toast.success("modified successful");
         setLoader(false);
-        replace("/");
+        replace("/manage-products");
       })
       .catch((err) => {
         setLoader(false);

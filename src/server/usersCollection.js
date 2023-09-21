@@ -33,7 +33,7 @@ export const updateUserActivityInDb = async (updateInfo) => {
   updateInfo?.cartItem && updateInfo?.payments
     ? (updateDoc = {
         $set: {
-          $pop: { cartItem: { $in: { id: updateInfo?.cartItem?.id } } },
+          $pull:{cartItem:{id:updateInfo?.cartItem?.id}},
           $push: { payments: updateInfo?.payments },
         },
       })
@@ -43,3 +43,12 @@ export const updateUserActivityInDb = async (updateInfo) => {
       });
   return userCollection.updateOne(query, updateDoc);
 };
+export const deleteCartItem=async(productInfo)=>{
+  const db = await DbConnect();
+  const userCollection = db.collection("users");
+  const query = {email:productInfo?.email}
+  const updateDoc={
+      $pull:{cartItem:{id:productInfo?.id}}
+  }
+  return userCollection.updateOne(query,updateDoc);
+}
