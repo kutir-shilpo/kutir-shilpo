@@ -39,6 +39,7 @@ const AddProduct = () => {
         replace("/");
         console.log(data);
         setLoader(false);
+        toast.success("product added successful")
       })
       .catch((err) => {
         setLoader(false);
@@ -51,7 +52,7 @@ const AddProduct = () => {
     setProductImageLoader(true);
     const formData = new FormData();
     formData.append("image", files[0]);
-    console.log(formData);
+    // console.log(formData);
     fetch(
       `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_imagebb_key}`,
       {
@@ -73,9 +74,12 @@ const AddProduct = () => {
       });
   };
   return (
-    <>
+    <div className="mx-auto w-[98%] md:w-[85%] lg:w-3/4 xl:w-2/4">
+      <h2 className="text-xl pb-1 mb-2">
+        <span className="border-b-2 border-[#516067]">Add</span> Product
+      </h2>
       {user?.photoURL ? (
-        <div className="mx-auto w-[98%] md:w-[85%] lg:w-3/4 xl:w-2/4 rounded border p-8 shadow bg-white">
+        <div className="rounded border p-8 shadow bg-white">
           <h2 className="text-lg mb-3 border-b rounded text-[#516067]">
             Owner Information
           </h2>
@@ -278,7 +282,7 @@ const AddProduct = () => {
               )}
             </div>
             {productImageLoader || loader ? (
-              <Button>Add product</Button>
+              <span className="flex justify-center py-2 px-3 rounded text-white bg-[#94aeb9] hover:bg-[#8298a2]">Loading...</span>
             ) : (
               <Button type="submit">Add product</Button>
             )}
@@ -287,7 +291,7 @@ const AddProduct = () => {
       ) : (
         <div className="loader"></div>
       )}
-    </>
+    </div>
   );
 };
 
