@@ -1,9 +1,9 @@
 "use client";
 import Dashboard from "@/component/icons/dashboard";
+import useDashboardBar from "@/hook/useDashboardBar";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 const dashboardItems = [
   {
     _id: 1,
@@ -47,21 +47,22 @@ const dashboardItems = [
   },
 ];
 
-const TopBar = () => {
-  const [barShow, setBarShow] = useState(false);
+const DashboardBar = () => {
+  const [visibleDashboardItem, setVisibleDashboardItem] = useDashboardBar();
   const currentPage = usePathname();
   return (
     <div className="h-full relative flex flex-col items-end text-[#516067] rounded">
-      <div className="mt-2 py-2 bg-white sm:bg-slate-50 px-4 rounded shadow">
-        <Dashboard
-          onClick={() => setBarShow(!barShow)}
-          className="text-xl"
-        />
-      </div>
+      <span
+        onClick={() => setVisibleDashboardItem(!visibleDashboardItem)}
+        className={`${currentPage==="/"||currentPage==="/products"||"bg-white"} cursor-pointer py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]`}
+      >
+        Dashboard
+      </span>
       <div
+        onClick={() => setVisibleDashboardItem(!visibleDashboardItem)}
         className={`${
-          barShow ? "block mt-2" : "hidden"
-        } relative lg:absolute lg:top-full bg-slate-50 border border-t-0 gap-3`}
+          visibleDashboardItem ? "block mt-1" : "hidden"
+        } w-[180px] absolute z-40 rounded top-full bg-slate-50 border border-t-0 gap-3`}
       >
         {dashboardItems?.map((item) => (
           <Link
@@ -70,7 +71,7 @@ const TopBar = () => {
             className={`${
               currentPage === item?.href &&
               "bg-white font-normal text-[#8298a2]"
-            } flex cursor-pointer gap-1 py-2 px-3 2xl:px-6 items-center`}
+            } flex cursor-pointer gap-1 py-2 px-3 items-center`}
           >
             {item?.icon} {item?.title}
           </Link>
@@ -80,4 +81,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default DashboardBar;

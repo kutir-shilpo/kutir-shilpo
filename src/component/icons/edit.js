@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 
 const Edit = ({onClick,className}) => {
     return <Icon
-    onClick={()=>onClick}
+    onClick={onClick}
     className={className}
       icon="fa-regular:edit"
     />

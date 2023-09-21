@@ -59,3 +59,10 @@ export const modifiedProduct = async (product) => {
   };
   return productsCollection.updateOne(query, updateProduct);
 };
+// delete product form db
+export const deleteProductById = async (id) => {
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  const query = { _id: new ObjectId(id) };
+  return productsCollection.deleteOne(query);
+};

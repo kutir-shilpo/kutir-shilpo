@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 const Delete = ({onClick,className}) => {
     return <Icon
-    onClick={()=>onclick}
+    onClick={onClick}
     className={className}
     icon="heroicons-outline:trash"
   />
