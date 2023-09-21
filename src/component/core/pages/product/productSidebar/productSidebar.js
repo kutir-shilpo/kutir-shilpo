@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 const ProductSidebar = ({ product, loading }) => {
   const { madeDate, quantity, sells, manufactureAuthority, location } = product;
   return (
-    <div className="border-l flex flex-col gap-1 bg-slate-50 rounded-r p-6 h-full">
+    <div className="border-l flex flex-col gap-1 bg-white rounded-r p-6 h-full">
       {!loading? (
         <>
           <p>Available Quantity: {quantity||"Out of Stock"}.</p>

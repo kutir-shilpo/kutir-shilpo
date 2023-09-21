@@ -6,8 +6,11 @@ import React from "react";
 
 const ProductMain = ({ product, loading }) => {
   const { image, title, price } = product;
+  const quantityAddHandler = (e) => {
+    e.preventDefault();
+  };
   return (
-    <div className="grid grid-cols-2 gap-4 p-6 bg-slate-50 rounded-l md:p-8">
+    <div className="grid grid-cols-2 gap-4 p-6 bg-white rounded-l md:p-8">
       {!loading ? (
         <>
           {image && (
@@ -28,7 +31,10 @@ const ProductMain = ({ product, loading }) => {
             <h4 className="text-2xl mt-4 text-[#516067]">৳ {price}</h4>
             <div className="mt-4">
               {/* quantity select from */}
-              <form className="flex items-center gap-2 mb-4">
+              <form
+                onSubmit={quantityAddHandler}
+                className="flex items-center gap-2 mb-4"
+              >
                 <label>Quantity</label>
                 <button className="bg-slate-200 text-slate-500 py-2 px-3 rounded">
                   <Icon icon="heroicons-outline:minus-sm" />

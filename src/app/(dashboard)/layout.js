@@ -1,11 +1,12 @@
-import TopBar from "@/component/core/pages/dashboard/topBar/topBar";
-import React from "react";
 
+export const metadata = {
+  title: "Kutir Shilpo-dashboard",
+  // description: "",
+};
 const layout = ({ children }) => {
   return (
     <>
-      <TopBar />
-      <div className="mt-8 md:mt-10">{children}</div>
+      <div className="mt-2 lg:mt-10">{children}</div>
     </>
   );
 };

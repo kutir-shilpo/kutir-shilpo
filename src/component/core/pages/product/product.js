@@ -1,4 +1,3 @@
-import React from "react";
 import ProductSidebar from "./productSidebar/productSidebar";
 import ProductMain from "./productMain/productMain";
 
@@ -15,7 +14,7 @@ const Product = ({ product, loading }) => {
           </div>
         </div>
         {/* description */}
-        <div className="rounded mt-4 bg-slate-50 p-6 md:p-8">
+        <div className="rounded mt-4 bg-white p-6 md:p-8">
           {!loading ? (
             <>
               <h2 className="font-normal text-lg">Description</h2>

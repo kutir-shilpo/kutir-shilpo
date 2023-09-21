@@ -16,7 +16,7 @@ const ProductByCategory = () => {
             <h2 className="text-xl text-[#516067] mb-4 md:mb-6">
               <span className="border-b-2 border-[#516067]">Clay</span> Products
             </h2>
-            <div className="grid gap-3 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+            <div className="grid gap-2 md:gap-4 xl:gap-8 grid-cols-2 xl:grid-cols-4">
               {categoryProducts?.map((product) => (
                 <ProductCard key={product?._id} product={product} />
               ))}

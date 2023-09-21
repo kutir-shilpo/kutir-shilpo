@@ -19,13 +19,13 @@ export const getProductByCategory = async (category) => {
   const query = { category: category };
   return productsCollection.find(query).toArray();
 };
-// users added product
-export const getUserAddedProduct=async(email)=>{
+// added product in db
+export const getUserAddedProduct = async (email) => {
   const db = await DbConnect();
   const productsCollection = db.collection("products");
-  const query = {ownerEmail:email};
+  const query = { ownerEmail: email };
   return productsCollection.find(query).toArray();
-}
+};
 
 // search product
 export const getProductByTitle = async (title) => {
@@ -36,9 +36,33 @@ export const getProductByTitle = async (title) => {
   return productsCollection.find(query).toArray();
 };
 
-// add quarry
-export const addProductInDb=async(product)=>{
+// add product in db
+export const addProductInDb = async (product) => {
   const db = await DbConnect();
   const productsCollection = db.collection("products");
   return productsCollection.insertOne(product);
-}
+};
+// modified product
+export const modifiedProduct = async (product) => {
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  const query = { _id: new ObjectId(product?.id) };
+  const updateProduct = {
+    $set: {
+      title: product?.title,
+      quantity: product?.quantity,
+      image: product?.image,
+      manufactureAuthority: product?.manufactureAuthority,
+      price: product?.price,
+      description: product?.description,
+    },
+  };
+  return productsCollection.updateOne(query, updateProduct);
+};
+// delete product form db
+export const deleteProductById = async (id) => {
+  const db = await DbConnect();
+  const productsCollection = db.collection("products");
+  const query = { _id: new ObjectId(id) };
+  return productsCollection.deleteOne(query);
+};

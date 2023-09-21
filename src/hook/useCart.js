@@ -15,26 +15,41 @@ const useCart = () => {
     fetch(`${process.env.NEXT_PUBLIC_api}api/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setCartItems(data?.cartItem||[]);
+        setCartItems(data?.cartItem);
         setCartLoading(false);
       })
       .catch(() => {
         toast.error("Cart item not found");
       });
   }, [user]);
-  const refetch = () => {
-    fetch(`${process.env.NEXT_PUBLIC_api}api/users?email=${user?.email}`)
+  const deleteCartItem = (id) => {
+    // console.log(id, user?.email);
+    const productInfo = { id, email: user?.email };
+    fetch(`${process.env.NEXT_PUBLIC_api}api/removeCartProduct`, {
+      method: "PATCH",
+      headers: {
+        "contain-type": "application/json",
+      },
+      body: JSON.stringify(productInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        fetch(`${process.env.NEXT_PUBLIC_api}api/users?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCartItems(data?.cartItem);
         setCartLoading(false);
+        toast.success("cart item delete")
       })
       .catch(() => {
         setCartLoading(false)
-        toast.error("something was wrong")
+        toast.error("something was wrong");
       });
+      })
+      .catch((err) => console.log(err));
   };
-  return [cartItems, cartLoading, refetch];
+  return [cartItems, cartLoading, deleteCartItem,setCartItems,setCartLoading];
 };
 
 export default useCart;

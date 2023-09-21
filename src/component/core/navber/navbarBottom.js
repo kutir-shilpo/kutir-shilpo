@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import ActiveLink from "../activeLink/activeLink";
 import useAuthContext from "@/hook/useAuthContext";
+import DashboardBar from "../pages/dashboard/dashboardBar/dashboardBar";
 
-const NavbarBottom = ({ className, setIsLogoutShow }) => {
+const NavbarBottom = ({ className, setIsLogoutShow, setIsRightOpen }) => {
   const { user } = useAuthContext();
 
   // is logged show
@@ -10,23 +11,29 @@ const NavbarBottom = ({ className, setIsLogoutShow }) => {
     setIsLogoutShow(false);
   }, [user, setIsLogoutShow]);
   return (
-      <div className={`${className} mt-3 sm:mt-0`}>
-        <div className="container sm:bg-slate-100">
-          <div className="bg-slate-100 flex flex-col sm:flex-row gap-2 sm:gap-4 sm:justify-end sm:bg-transparent text-sm font-semibold">
-          <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/">
+    <div
+      className={`${className} mt-3 sm:mt-0`}
+    >
+      <div className="container sm:bg-slate-50 sm:border-b">
+        <div className="bg-slate-50 sm:bg-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-end sm:bg-transparent text-sm font-semibold">
+          <ActiveLink
+           onClick={() => setIsRightOpen((prev) => (prev = !prev))}
+            className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]"
+            href="/"
+          >
             Home
           </ActiveLink>
-          <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/products">
+          <ActiveLink
+           onClick={() => setIsRightOpen((prev) => (prev = !prev))}
+            className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]"
+            href="/products"
+          >
             Products
           </ActiveLink>
-          {user && (
-            <ActiveLink className="py-3 px-5 w-full text-right md:text-center sm:w-fit text-[#516067]" href="/profile-settings">
-              Dashboard
-            </ActiveLink>
-          )}
-          </div>
+          {user && <DashboardBar />}
         </div>
       </div>
+    </div>
   );
 };
 
