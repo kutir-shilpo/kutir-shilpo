@@ -118,7 +118,7 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) =>
       {/* top navbar right side */}
       <div className="flex flex-row-reverse sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-2">
         <Link href="/cart-items"
-          className="relative top-[2px] flex items-center sm:mr-4"
+          className="relative top-[6px] flex items-center sm:mr-4"
           onClick={()=>setIsLeftOpen(prev=>prev=!prev)}
         >
           <CartCount />

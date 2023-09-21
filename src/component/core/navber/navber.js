@@ -25,6 +25,7 @@ const NavBer = () => {
             className="hidden sm:flex"
             setIsLogoutShow={setIsLogoutShow}
             isLogoutShow={isLogoutShow}
+            setIsLeftOpen={setIsLeftOpen}
           />
         </div>
       </div>
@@ -32,11 +33,12 @@ const NavBer = () => {
       <NavbarBottom
         className="hidden sm:flex"
         setIsLogoutShow={setIsLogoutShow}
+        setIsRightOpen={setIsRightOpen}
       />
 
       {/* small device navbar */}
       <div className="container">
-        <div className="sm:hidden p-3 px-7 rounded bg-white flex justify-between">
+        <div className="sm:hidden p-3 px-5 rounded bg-white flex justify-between">
           <BarLeft
             onClick={() => setIsLeftOpen(!isLeftOpen)}
             className="text-2xl"
@@ -48,7 +50,7 @@ const NavBer = () => {
         </div>
         {/* mobile navbar */}
         <NavbarTop
-          className={`${isLeftOpen ? "sm:hidden flex" : "hidden"} bg-white rounded p-5`}
+          className={`${isLeftOpen ? "sm:hidden flex" : "hidden"} bg-white rounded py-3 px-5`}
           setIsLogoutShow={setIsLogoutShow}
           isLogoutShow={isLogoutShow}
           setIsLeftOpen={setIsLeftOpen}

@@ -5,6 +5,7 @@ import useAuthContext from "@/hook/useAuthContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const ManageProducts = () => {
   const [addedItems, setAddedItems] = useState([]);
@@ -19,9 +20,11 @@ const ManageProducts = () => {
       .then((data) => {
         setAddedItemsLoader(false);
         setAddedItems(data);
-        console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("Something is wrong")
+        // console.log(err);
+      });
   }, [user]);
   return (
     <div className="w-full overflow-x-scroll xl:w-2/3 mx-auto text-[#516067]">

@@ -1,4 +1,3 @@
-import React from "react";
 import ProductSidebar from "./productSidebar/productSidebar";
 import ProductMain from "./productMain/productMain";
 

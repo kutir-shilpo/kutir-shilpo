@@ -51,17 +51,17 @@ const TopBar = () => {
   const [barShow, setBarShow] = useState(false);
   const currentPage = usePathname();
   return (
-    <div className="h-full flex flex-col lg:flex-row items-end lg:justify-end text-[#516067] rounded">
-      <div className="lg:hidden mt-2 py-2 bg-white sm:bg-slate-50 px-4 rounded shadow">
+    <div className="h-full relative flex flex-col items-end text-[#516067] rounded">
+      <div className="mt-2 py-2 bg-white sm:bg-slate-50 px-4 rounded shadow">
         <Dashboard
           onClick={() => setBarShow(!barShow)}
-          className="text-2xl"
+          className="text-xl"
         />
       </div>
       <div
         className={`${
-          barShow ? "block mt-2" : "hidden lg:flex"
-        } bg-slate-50 lg:bg-slate-100 border border-t-0 gap-3`}
+          barShow ? "block mt-2" : "hidden"
+        } relative lg:absolute lg:top-full bg-slate-50 border border-t-0 gap-3`}
       >
         {dashboardItems?.map((item) => (
           <Link
