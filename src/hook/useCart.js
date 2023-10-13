@@ -5,7 +5,7 @@ import useAuthContext from "./useAuthContext";
 import { toast } from "react-hot-toast";
 
 const useCart = () => {
-  const { user } = useAuthContext();
+  const { user,userLoading } = useAuthContext();
   const [cartItems, setCartItems] = useState([]);
   const [cartLoading, setCartLoading] = useState(false);
 
@@ -21,6 +21,7 @@ const useCart = () => {
       .catch(() => {
         setCartLoading(false);
         toast.error("Cart item not found");
+        console.log('akhane error');
       });
   }, [user]);
   const deleteCartItem = (id) => {
