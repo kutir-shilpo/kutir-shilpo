@@ -9,27 +9,24 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) => {
+const NavbarTop = ({
+  className,
+  setIsLogoutShow,
+  isLogoutShow,
+  setIsLeftOpen,
+}) => {
   // auth context
   const pathName = usePathname();
-  const {
-    user,
-    logout,
-    userLoading,
-    googleUser,
-    setDashboardTitle,
-  } = useAuthContext();
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { user, logout, userLoading, googleUser, setDashboardTitle } =
+    useAuthContext();
+  const { register, handleSubmit } = useForm();
 
   const { replace } = useRouter();
 
   // search bar handler
-  
+
   const onSubmit = (data) => {
-    const searchResult=data?.searchFiled.toLowerCase();
+    const searchResult = data?.searchFiled.toLowerCase();
     // Todo: search product will came hare
   };
 
@@ -92,6 +89,20 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) =>
     setDashboardTitle("profile settings");
   };
 
+  // User letter
+  const randomColure=[
+    'bg-green-400',
+    'bg-green-500',
+    'bg-green-600',
+    'bg-green-700',
+    'bg-red-800',
+    'bg-red-600',
+    'bg-red-700',
+    'bg-blue-400',
+    'bg-blue-500',
+    'bg-blue-600'
+  ];
+  const randomNumber = Math.ceil(Math.random());
   return (
     <div
       className={`${className} mt-3 sm:mt-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-2`}
@@ -117,9 +128,10 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) =>
       </form>
       {/* top navbar right side */}
       <div className="flex flex-row-reverse sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-2">
-        <Link href="/cart-items"
+        <Link
+          href="/cart-items"
           className="relative top-[6px] flex items-center sm:mr-4"
-          onClick={()=>setIsLeftOpen(prev=>prev=!prev)}
+          onClick={() => setIsLeftOpen((prev) => (prev = !prev))}
         >
           <CartCount />
         </Link>
@@ -129,14 +141,25 @@ const NavbarTop = ({ className, setIsLogoutShow, isLogoutShow,setIsLeftOpen}) =>
             onClick={() => setIsLogoutShow(!isLogoutShow)}
             className="relative mr-2 sm:mr-0"
           >
-            <Image
-              width={40}
-              height={40}
-              className="rounded-full cursor-pointer"
-              src={user?.photoURL}
-              alt="user photo"
-              title={user?.displayName}
-            />
+            {user?.photoURL ? (
+              <Image
+                width={40}
+                height={40}
+                className="rounded-full cursor-pointer"
+                src={user?.photoURL}
+                alt="user photo"
+                title={user?.displayName}
+              />
+            ) : (
+              <span
+                className={`h-[40px] w-[40px] flex items-center font-bold justify-center uppercase text-black ${randomColure[randomNumber]} rounded-full cursor-pointer overflow-hidden`}
+              >
+                {user?.displayName
+                  .split(" ")
+                  .map((i) => i.slice(0, 1))
+                  .join("")}
+              </span>
+            )}
             <div
               className={`scale-0 ${
                 isLogoutShow && "scale-100"
