@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  text-transform: capitalize;
+}
 // variable declare
 $base-color: #516067;
 $light-color: #8298a2;
